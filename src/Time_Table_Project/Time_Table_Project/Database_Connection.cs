@@ -36,12 +36,12 @@ namespace Time_Table_Project
                 }
                 else if (count > 1)
                 {
-                    MessageBox.Show("User name Duplicated");
+                    //MessageBox.Show("User name Duplicated");
                     return false;
                 }
                 else
                 {
-                    MessageBox.Show("User not exist");
+                    //MessageBox.Show("User not exist");
                     return false;
                 }
             }
