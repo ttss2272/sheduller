@@ -32,7 +32,7 @@ namespace Time_Table_Project
         // add server Mac Adress and replace it with localhost
         RemoteIR obj = (RemoteIR)Activator.GetObject(
                 typeof(Remote_Scheduller_Interface.RemoteIR),
-                "tcp://localhost:3306/RemoteScheduller");
+                "tcp://localhost:8089/RemoteScheduller");
             
         int pink = 0; int pink_change_Column = 10;
         int yellow = 0;
