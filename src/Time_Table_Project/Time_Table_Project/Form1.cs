@@ -53,16 +53,15 @@ namespace Time_Table_Project
         
         private void Pink_Post_Mouse_Click(object sender, MouseEventArgs e)
         {
-            if (No < 20)
+            try
             {
-                if (pink == 10)
+                if (pink == 9)
                 {
-                    pink_change_Column = pink_change_Column + 11;
-                    yellow_change_column = yellow_change_column + 11;
+                    pink_change_Column--;
+                    yellow_change_column--;
                     pink = 0;
                 }
                 pink = pink + 1;
-                No++;
                 // label3.Enabled = false;
                 p1 = new Panel();
 
@@ -208,6 +207,11 @@ namespace Time_Table_Project
                 p1.KeyDown += new System.Windows.Forms.KeyEventHandler(p1_KeyDown);
                 p1.Paint += (p1_Paint);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+                 
         }
 
         void p1_Paint(object sender, PaintEventArgs e)
@@ -470,14 +474,14 @@ namespace Time_Table_Project
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
             {
                 dict[new TableLayoutPanelCellPosition(e.Column, e.Row)] = e.CellBounds;
-                                  if (moved)
+                if (moved)
                 {
                     if (e.CellBounds.Contains(tableLayoutPanel1.PointToClient(MousePosition)))
                     {
                         e.Graphics.FillRectangle(Brushes.White, e.CellBounds);
                     }
                 }
-             }
+            }
 
         private void Yellow_label_mouse_Click(object sender, MouseEventArgs e)
         {
@@ -485,8 +489,8 @@ namespace Time_Table_Project
             {
                 if (pink == 10)
                 {
-                    yellow_change_column = yellow_change_column + 11;
-                    pink_change_Column = pink_change_Column + 11;
+                    yellow_change_column=yellow_change_column+11;
+                    pink_change_Column=pink_change_Column+11;
                     pink = 0;
                 }
                 yellow = ++pink;
@@ -661,6 +665,11 @@ namespace Time_Table_Project
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            
+            
 
             // dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
             pictureBox2.Enabled = false;
@@ -679,9 +688,18 @@ namespace Time_Table_Project
             pictureBox2.Enabled = true;
             pictureBox1.Enabled = true;
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            
             pictureBox1.Enabled = false;
             pictureBox2.Enabled = false;
             
@@ -698,35 +716,47 @@ namespace Time_Table_Project
 
             pictureBox1.Enabled = true;
             pictureBox2.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panel2.Visible = false;
-            textBox_1.Select(0,0);
-            this.Visible = true;
-            this.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
-            this.Location = new Point(0, 0);
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            this.Bounds = Screen.PrimaryScreen.Bounds;
-            panel2.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height - 10);
-            tableLayoutPanel1.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width , Screen.PrimaryScreen.WorkingArea.Height - 5);
-            panel2.Location = new System.Drawing.Point(0, 0);
-            pictureBox3.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width - 100,Screen.PrimaryScreen.WorkingArea.Height- 100);
-            loading_page_Date_Checker(dateTimePicker1.Text);
-            loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            try
+            {
+                panel2.Visible = false;
+                textBox_1.Select(0, 0);
+                this.Visible = true;
+                this.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                this.Location = new Point(0, 0);
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                this.Bounds = Screen.PrimaryScreen.Bounds;
+                panel2.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height - 10);
+                tableLayoutPanel1.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height - 5);
+                panel2.Location = new System.Drawing.Point(0, 0);
+                pictureBox3.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width - 100, Screen.PrimaryScreen.WorkingArea.Height - 100);
+                loading_page_Date_Checker(dateTimePicker1.Text);
+                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+
+            }
+
         }
 
         private void loading_page_Date_Checker(string kj)
         {
             try
             {
-
-            
-            if (obj.search_date_of_left_day(kj, 0) == true)
+                if (obj.search_date_of_left_day(kj, 0) == true)
                 {
-                   // MessageBox.Show(kj + " Date is Found");
+                    // MessageBox.Show(kj + " Date is Found");
                     clear_left_date();
                     for (int num = 0; num < tableLayoutPanel1.ColumnCount / 2; num++)
                     {
@@ -735,14 +765,14 @@ namespace Time_Table_Project
                 }
                 else
                 {
-                   // MessageBox.Show(kj + " Date Not Found");
+                    // MessageBox.Show(kj + " Date Not Found");
                     for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
                     {
                         for (int j = 0; j < tableLayoutPanel1.ColumnCount / 2; j++)
                         {
                             if (i == 0 || j == 0)
                             {
-                               // MessageBox.Show("Doing Nothing");
+                                // MessageBox.Show("Doing Nothing");
                             }
                             else
                             {
@@ -757,46 +787,38 @@ namespace Time_Table_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
-             
             }
             }
 
         private void loading_page_RightDate_Checkeer(string kl)
         {
-            try
+            if (obj.search_date_of_left_day(kl, 0) == true)
             {
-                if (obj.search_date_of_left_day(kl, 0) == true)
+//                MessageBox.Show(kl +" Date is Found");
+                clear_right_date();
+                for (int num = 0; num < 11 ; num++)
                 {
-                    //                MessageBox.Show(kl +" Date is Found");
-                    clear_right_date();
-                    for (int num = 0; num < 11; num++)
-                    {
-                        read_secondDay_from_DB(kl, num);
-                    }
+                    read_secondDay_from_DB(kl, num);
                 }
-                else
-                {
-                    //             MessageBox.Show(kl + " Date Not Found");
+            }
+            else
+            {
+  //             MessageBox.Show(kl + " Date Not Found");
 
-                    for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
+                for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
+                {
+                    for (int j = tableLayoutPanel1.ColumnCount/2; j < tableLayoutPanel1.ColumnCount; j++)
                     {
-                        for (int j = tableLayoutPanel1.ColumnCount / 2; j < tableLayoutPanel1.ColumnCount; j++)
+                        if (i == 0 || j == tableLayoutPanel1.ColumnCount/2 )
                         {
-                            if (i == 0 || j == tableLayoutPanel1.ColumnCount / 2)
-                            {
-                            }
-                            else
-                            {
-                                //     MessageBox.Show("Cleaning "+i+" = row and column = "+j);
-                                tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(j, i));
-                            }
+                        }
+                        else
+                        {
+                            //     MessageBox.Show("Cleaning "+i+" = row and column = "+j);
+                            tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(j, i));
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
             }
         }
        
@@ -1637,11 +1659,10 @@ namespace Time_Table_Project
             {
                 reading_firstDay_table();
                 reading_SecondDay_table();
-
-                 dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-                 loading_page_Date_Checker(dateTimePicker1.Text);
-
-                 loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            
+                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
+                loading_page_Date_Checker(dateTimePicker1.Text);
+                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
             }
             catch (Exception ex)
             {

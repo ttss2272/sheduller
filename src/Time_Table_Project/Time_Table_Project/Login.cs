@@ -49,20 +49,27 @@ namespace Time_Table_Project
             }
             else
             {
-                string user = textBox1.Text;
-                string pass = textBox2.Text;
-                if (obj.user_connection(user, pass))
+                try
                 {
-                    this.Visible = false;
-                    Form1 f = new Form1();
-                    f.Visible = true;
+                    string user = textBox1.Text;
+                    string pass = textBox2.Text;
+                    if (obj.user_connection(user, pass))
+                    {
+                        this.Visible = false;
+                        Form1 f = new Form1();
+                        f.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please  Enter Correct UserName And Password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox1.Text = null;
+                        textBox2.Text = null;
+                        textBox1.Focus();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Please  Enter Correct UserName And Password.","Login Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                    textBox1.Text = null;
-                    textBox2.Text = null;
-                    textBox1.Focus();
+                    MessageBox.Show("Connection Error Please Start Server.");
                 }
             }
         }
