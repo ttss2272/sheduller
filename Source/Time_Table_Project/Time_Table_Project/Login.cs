@@ -27,7 +27,7 @@ namespace Time_Table_Project
         // add server Mac Adress and replace it with localhost
         RemoteIR obj = (RemoteIR)Activator.GetObject(
                 typeof(Remote_Scheduller_Interface.RemoteIR),
-                "tcp://192.168.15.9:8089/RemoteScheduller");
+                "tcp://192.168.1.23:8089/RemoteScheduller");
 
         public static void Mian()
         {
@@ -43,19 +43,27 @@ namespace Time_Table_Project
             }
             else
             {
-                string user = textBox1.Text;
-                string pass = textBox2.Text;
-                if (obj.user_connection(user, pass))
+                try
                 {
-                    this.Visible = false;
-                    Form1 f = new Form1();
-                    f.Visible = true;
+                    string user = textBox1.Text;
+                    string pass = textBox2.Text;
+                    if (obj.user_connection(user, pass))
+                    {
+                        this.Visible = false;
+                        Form1 f = new Form1();
+                        f.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Enter Correct UserName And Password");
+                        textBox1.Text = null;
+                        textBox2.Text = null;
+                        textBox1.Focus();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    textBox1.Text = null;
-                    textBox2.Text = null;
-                    textBox1.Focus();
+                    MessageBox.Show(ex.Message.ToString());
                 }
             }
         }
