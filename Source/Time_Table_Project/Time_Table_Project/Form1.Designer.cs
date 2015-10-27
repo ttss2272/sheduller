@@ -229,14 +229,14 @@ namespace Time_Table_Project
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1298, 635);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1298, 629);
             this.tableLayoutPanel1.TabIndex = 4;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             // 
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(4, 579);
+            this.label25.Location = new System.Drawing.Point(4, 569);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(29, 43);
             this.label25.TabIndex = 20;
@@ -245,7 +245,7 @@ namespace Time_Table_Project
             // label24
             // 
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(4, 526);
+            this.label24.Location = new System.Drawing.Point(4, 517);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(29, 44);
             this.label24.TabIndex = 19;
@@ -254,7 +254,7 @@ namespace Time_Table_Project
             // label23
             // 
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(4, 473);
+            this.label23.Location = new System.Drawing.Point(4, 465);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(28, 38);
             this.label23.TabIndex = 18;
@@ -263,7 +263,7 @@ namespace Time_Table_Project
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(4, 420);
+            this.label22.Location = new System.Drawing.Point(4, 413);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(28, 41);
             this.label22.TabIndex = 17;
@@ -272,7 +272,7 @@ namespace Time_Table_Project
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(4, 367);
+            this.label21.Location = new System.Drawing.Point(4, 361);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(29, 40);
             this.label21.TabIndex = 16;
@@ -281,7 +281,7 @@ namespace Time_Table_Project
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(4, 314);
+            this.label20.Location = new System.Drawing.Point(4, 309);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(29, 39);
             this.label20.TabIndex = 15;
@@ -290,7 +290,7 @@ namespace Time_Table_Project
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(4, 261);
+            this.label19.Location = new System.Drawing.Point(4, 257);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(29, 42);
             this.label19.TabIndex = 14;
@@ -299,7 +299,7 @@ namespace Time_Table_Project
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(4, 208);
+            this.label18.Location = new System.Drawing.Point(4, 205);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(29, 39);
             this.label18.TabIndex = 13;
@@ -308,7 +308,7 @@ namespace Time_Table_Project
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(4, 155);
+            this.label17.Location = new System.Drawing.Point(4, 153);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(28, 37);
             this.label17.TabIndex = 12;
@@ -317,7 +317,7 @@ namespace Time_Table_Project
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(4, 102);
+            this.label16.Location = new System.Drawing.Point(4, 101);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(28, 41);
             this.label16.TabIndex = 11;
@@ -549,7 +549,7 @@ namespace Time_Table_Project
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(642, 102);
+            this.label2.Location = new System.Drawing.Point(642, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 35);
             this.label2.TabIndex = 32;
@@ -559,7 +559,7 @@ namespace Time_Table_Project
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(642, 155);
+            this.label5.Location = new System.Drawing.Point(642, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 35);
             this.label5.TabIndex = 33;
@@ -569,7 +569,7 @@ namespace Time_Table_Project
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(642, 208);
+            this.label6.Location = new System.Drawing.Point(642, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 35);
             this.label6.TabIndex = 34;
@@ -579,7 +579,7 @@ namespace Time_Table_Project
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(642, 261);
+            this.label7.Location = new System.Drawing.Point(642, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 35);
             this.label7.TabIndex = 35;
@@ -589,7 +589,7 @@ namespace Time_Table_Project
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(642, 314);
+            this.label8.Location = new System.Drawing.Point(642, 309);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(22, 35);
             this.label8.TabIndex = 36;
@@ -599,7 +599,7 @@ namespace Time_Table_Project
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(642, 367);
+            this.label9.Location = new System.Drawing.Point(642, 361);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 35);
             this.label9.TabIndex = 37;
@@ -609,7 +609,7 @@ namespace Time_Table_Project
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(642, 420);
+            this.label10.Location = new System.Drawing.Point(642, 413);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(22, 35);
             this.label10.TabIndex = 38;
@@ -619,7 +619,7 @@ namespace Time_Table_Project
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(642, 473);
+            this.label11.Location = new System.Drawing.Point(642, 465);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(22, 35);
             this.label11.TabIndex = 39;
@@ -629,7 +629,7 @@ namespace Time_Table_Project
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(642, 526);
+            this.label12.Location = new System.Drawing.Point(642, 517);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(22, 35);
             this.label12.TabIndex = 40;
@@ -639,7 +639,7 @@ namespace Time_Table_Project
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(642, 579);
+            this.label13.Location = new System.Drawing.Point(642, 569);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(22, 35);
             this.label13.TabIndex = 41;
@@ -668,7 +668,7 @@ namespace Time_Table_Project
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(184, 10);
+            this.dateTimePicker1.Location = new System.Drawing.Point(220, 10);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(222, 31);
             this.dateTimePicker1.TabIndex = 3;
@@ -676,7 +676,7 @@ namespace Time_Table_Project
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Time_Table_Project.Properties.Resources.arrow;
-            this.pictureBox2.Location = new System.Drawing.Point(429, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(455, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(49, 45);
             this.pictureBox2.TabIndex = 2;
@@ -688,7 +688,7 @@ namespace Time_Table_Project
             this.label4.BackColor = System.Drawing.Color.Yellow;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(500, 7);
+            this.label4.Location = new System.Drawing.Point(524, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 34);
             this.label4.TabIndex = 2;
@@ -699,7 +699,7 @@ namespace Time_Table_Project
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Time_Table_Project.Properties.Resources.Leftarrow2;
-            this.pictureBox1.Location = new System.Drawing.Point(119, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(146, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(49, 45);
             this.pictureBox1.TabIndex = 1;
@@ -711,9 +711,9 @@ namespace Time_Table_Project
             this.label3.BackColor = System.Drawing.Color.Pink;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 6);
+            this.label3.Location = new System.Drawing.Point(6, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 34);
+            this.label3.Size = new System.Drawing.Size(112, 34);
             this.label3.TabIndex = 1;
             this.label3.Text = "New Post-It";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
