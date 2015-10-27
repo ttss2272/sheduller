@@ -26,9 +26,11 @@ namespace Scheduller_Server
         public MySqlCommand sda;
         public MySqlConnection conn;
 
+        string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+
         public void db_Connection(string date, int number_of_Line)
         {
-            string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+            //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             conn = new MySqlConnection(connect);
             //MessageBox.Show("onnection Developed");
         }
@@ -138,7 +140,7 @@ namespace Scheduller_Server
 
         public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
         {
-            string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+            //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
                     ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "')", conn);
@@ -173,7 +175,7 @@ namespace Scheduller_Server
         {
             string da = date;
             int l = line;
-            string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+            //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
             
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '" + da + "' AND line = '"+l.ToString()+"';", conn);
@@ -217,7 +219,7 @@ namespace Scheduller_Server
             try
             {
                // MessageBox.Show("Searching date = "+date);
-                string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+                //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
                 MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
                 MySqlCommand sda1 = new MySqlCommand(@"Select * from shedulling.tablelayout1 where date = '" + date +"' limit 1", conn);
@@ -238,15 +240,24 @@ namespace Scheduller_Server
                 conn.Dispose();
                 reader.Close();
                // MessageBox.Show("Connection is closed");
-                if (first_table.Equals(date) && Convert.ToInt32(ll) == li)
+                if (first_table != null)
                 {
-                    date_of_Table2 = true;
-                    return date_of_Table2;
+                    if (first_table.Equals(date) && Convert.ToInt32(ll) == li)
+                    {
+                        date_of_Table2 = true;
+                        Console.WriteLine("On Server data found for " + date);
+                        return date_of_Table2;
+                    }
+                    else
+                    {
+                        date_of_Table2 = false;
+                        Console.WriteLine("On Server data found for " + date);
+                        return date_of_Table2;
+                    }                    
                 }
                 else
                 {
-                    date_of_Table2 = false;
-                    return date_of_Table2;
+                    Console.WriteLine("On Server data could not found for " + date);
                 }
             }
             catch (Exception e)
@@ -276,7 +287,7 @@ namespace Scheduller_Server
         {
             try
             {
-                string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+                //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
                 MySqlConnection conn = new MySqlConnection(connect);
                 //Querey to select username and password
                 MySqlCommand sda = new MySqlCommand(@"Select Username,password from shedulling.users where Username = '" + user + "' ", conn);
@@ -301,12 +312,12 @@ namespace Scheduller_Server
                 }
                 else if (count > 1)
                 {
-                    MessageBox.Show("User name Duplicated");
+                    //MessageBox.Show("User name Duplicated");
                     return false;
                 }
                 else
                 {
-                    MessageBox.Show("User not exist");
+                    //MessageBox.Show("User not exist");
                     return false;
                 }
             }
