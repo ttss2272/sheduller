@@ -39,14 +39,14 @@ namespace Time_Table_Project
         }
 
 
-        public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
             //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             //GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', ' ')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', '" + twe + " ')", conn);
 
             MySqlDataReader reader;
             try
@@ -68,13 +68,13 @@ namespace Time_Table_Project
             closeCount++;
         }
 
-        public void add_data_secondDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void add_data_secondDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
             //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', ' ')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', '"+twe+" ')", conn);
 
             MySqlDataReader reader;
             try
@@ -94,13 +94,13 @@ namespace Time_Table_Project
             //conn.Close();
         }
 
-        public void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
             //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
-                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '" + date + "' AND line = '" + line + "'", conn);
+                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' ,col12='"+twe+"'where date = '" + date + "' AND line = '" + line + "'", conn);
             MySqlDataReader reader;
             try
             {
@@ -122,13 +122,13 @@ namespace Time_Table_Project
         }
 
         // prolem only in left side data updation :/
-        public void update_secondtable_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void update_secondtable_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
             //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
-                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '" + date + "' AND line = '" + line + "'", conn);
+                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "',col12='"+twe+"' where date = '" + date + "' AND line = '" + line + "'", conn);
             MySqlDataReader reader;
             try
             {
@@ -164,7 +164,7 @@ namespace Time_Table_Project
 
             //int r = tableLayoutPanel1.RowCount;
 
-            string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
+            string a, b, c, d, e, f, g, h, i, j, k,l; // storing data from database
             try
             {
                 //conn.Open();
@@ -182,8 +182,9 @@ namespace Time_Table_Project
                     i = reader.GetString(10);
                     j = reader.GetString(11);
                     k = reader.GetString(12);
+                    l = reader.GetString(13);
 
-                    s = a + " !" + b + " !" + c + " !" + d + " !" + e + " !" + f + "! " + g + " !" + h + "! " + i + " !" + j + " !" + k + " !";
+                    s = a + " !" + b + " !" + c + " !" + d + " !" + e + " !" + f + "! " + g + " !" + h + "! " + i + " !" + j + " !" + k + " !"+l+"!";
                 }
             }
             catch (Exception ex)
@@ -207,7 +208,7 @@ namespace Time_Table_Project
 
             int r = 0; // count rows
             //int cl = 11; // number of columns
-            string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
+            string a, b, c, d, e, f, g, h, i, j, k,l; // storing data from database
             try
             {
                 //conn.Open();
@@ -225,8 +226,9 @@ namespace Time_Table_Project
                     i = reader.GetString(10);
                     j = reader.GetString(11);
                     k = reader.GetString(12);
+                    l = reader.GetString(13);
 
-                    s = a + " !" + b + " !" + c + " !" + d + " !" + e + " !" + f + "! " + g + " !" + h + "! " + i + " !" + j + " !" + k + " !";
+                    s = a + " !" + b + " !" + c + " !" + d + " !" + e + " !" + f + "! " + g + " !" + h + "! " + i + " !" + j + " !" + k + " !"+l+"!";
                 }
             }
             catch (Exception ex)

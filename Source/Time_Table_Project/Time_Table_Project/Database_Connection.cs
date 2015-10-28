@@ -34,22 +34,26 @@ namespace Time_Table_Project
                 }
                 if (count <= 1)
                 {
+                    conn.Close();
                     return true;
                 }
                 else if (count > 1)
                 {
                     MessageBox.Show("User name Duplicated");
+                    conn.Close();
                     return false;
                 }
                 else
                 {
                     MessageBox.Show("User not exist");
+                    conn.Close();
                     return false;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                
                 return false;
             }
         }

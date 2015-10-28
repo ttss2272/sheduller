@@ -32,7 +32,7 @@ namespace Time_Table_Project
         // add server Mac Adress and replace it with localhost
         RemoteIR obj = (RemoteIR)Activator.GetObject(
                 typeof(Remote_Scheduller_Interface.RemoteIR),
-                "tcp://192.168.1.23:8089/RemoteScheduller");
+                "tcp://localhost:8089/RemoteScheduller");
             
         int pink = 0; int pink_change_Column = 10;
         int yellow = 0;
@@ -711,7 +711,7 @@ namespace Time_Table_Project
         }
 
         private void loading_page_Date_Checker(string kj)
-        {
+        {//check whether data is available for date if yes
             if (obj.search_date_of_left_day(kj, 0) == true)
                 {
                    // MessageBox.Show(kj + " Date is Found");
@@ -721,7 +721,7 @@ namespace Time_Table_Project
                         read_firstDay_from_DB(kj, num);
                     }
                 }
-                else
+                else//if data is not avialable for date
                 {
                    // MessageBox.Show(kj + " Date Not Found");
                     for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
@@ -827,8 +827,8 @@ namespace Time_Table_Project
          */
         int iteration = 0;
         int col = 0;
-        string[] storeing_firstday = new string[11];
-        string[] storeing_firstday1 = new string[11];
+        string[] storeing_firstday = new string[12];
+        string[] storeing_firstday1 = new string[12];
         int line = 0;
         int line1 = 0;
 
@@ -886,13 +886,13 @@ namespace Time_Table_Project
                 if (db.search_date_of_left_day(dat, line))
                 {
                     //MessageBox.Show();
-                    db.update_first_table_data(dat, line, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10]);
+                    db.update_first_table_data(dat, line, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10],storeing_firstday[11]);
                     line++;
 
                 }
                 else
                 {
-                    db.add_date_firstDay(dat, line, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10]);
+                    db.add_date_firstDay(dat, line, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10],storeing_firstday[11]);
                     line++;
                 }
             }
@@ -954,13 +954,13 @@ namespace Time_Table_Project
                 col = 0;
                 if (db.search_date_of_left_day(dat, line1))
                 {
-                    db.update_first_table_data(dat, line1, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10]);
+                    db.update_first_table_data(dat, line1, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10],storeing_firstday[11]);
                     line1++;
                    
                 }
                 else
                 {
-                    db.add_date_firstDay(dat, line1, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10]);
+                    db.add_date_firstDay(dat, line1, storeing_firstday[0], storeing_firstday[1], storeing_firstday[2], storeing_firstday[3], storeing_firstday[4], storeing_firstday[5], storeing_firstday[6], storeing_firstday[7], storeing_firstday[8], storeing_firstday[9], storeing_firstday[10],storeing_firstday[11]);
                     line1++;
                 }
             }
@@ -970,9 +970,9 @@ namespace Time_Table_Project
         int co = 0;
         string kll;
        // string[] array = new string[243];
-        string a, b, _c, d, e, f, g, h, i, j, k; // storing data from database
+        string a, b, _c, d, e, f, g, h, i, j, k,l; // storing data from database
 
-        int cl = 11;
+        int cl = 12;
         int r = 0;
 
         Control cc;
@@ -990,12 +990,13 @@ namespace Time_Table_Project
             i = "";
             j = "";
             k = "";
+            l = "";
 
             string readed_data;
             obj.db_Connection(date, r);
           //  r = 0;
            // MessageBox.Show("Value of r = "+r);
-            if (r == 11)
+            if (r == 12)
             { r = 0; }
 
             readed_data = obj.reading_left_date(date, number);
@@ -1014,7 +1015,7 @@ namespace Time_Table_Project
             i = arr[8];
             j = arr[9];
             k = arr[10];
-
+            l=arr[11];
 //            MessageBox.Show(a+"@"+b+"@"+_c+"@"+d+"@"+e+"@"+f+"@"+g+"@"+h+"@"+i+"@"+j+"@"+k);
             
             for (int change_col = 0; change_col < cl; change_col++)
@@ -1183,6 +1184,19 @@ namespace Time_Table_Project
                                 tableLayoutPanel1.Controls.Add(get_control(k), 10, r);
                             } break;
                         }
+                    case (11):
+                        {
+                            cc = get_control(l);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                //  MessageBox.Show("Adding at 11");
+                                tableLayoutPanel1.Controls.Add(get_control(l), 11, r);
+                            } break;
+                        }
                 }
             }
             r = r + 1;
@@ -1203,10 +1217,10 @@ namespace Time_Table_Project
             i = "";
             j = "";
             k = "";
-
+            l = "";
             obj.db_Connection(date, r);
             // MessageBox.Show("Value of ir = "+ir);
-            if (ir == 11)
+            if (ir == 12)
             { ir = 0; }
             string read_data;
 
@@ -1225,12 +1239,13 @@ namespace Time_Table_Project
                 i = arr[8];
                 j = arr[9];
                 k = arr[10];
+                l = arr[11];
 
-                for (int change_col = 11; change_col <= (cl + 11); change_col++)
+                for (int change_col = 12; change_col <= (cl + 11); change_col++)
                 {
                     switch (change_col)
                     {
-                        case (11):
+                        case (12):
                             {
                                 // pushing always 1st value from db to first column of table
                                 cc = get_control(a);
@@ -1239,11 +1254,11 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(a), 11, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(a), 12, ir);
                                     //Console.Write("a is written its text = " + a + " :)");
                                 } break;
                             }
-                        case 12:
+                        case 13:
                             {
                                 cc = get_control(b);
                                 if (cc.Name == "empty")
@@ -1252,10 +1267,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(b), 12, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(b), 13, ir);
                                 } break;
                             }
-                        case (13):
+                        case (14):
                             {
                                 cc = get_control(_c);
                                 if (cc.Name == "empty")
@@ -1264,10 +1279,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(_c), 13, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(_c), 14, ir);
                                 } break;
                             }
-                        case (14):
+                        case (15):
                             {
                                 cc = get_control(d);
                                 if (cc.Name == "empty")
@@ -1276,10 +1291,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(d), 14, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(d), 15, ir);
                                 } break;
                             }
-                        case (15):
+                        case (16):
                             {
                                 cc = get_control(e);
                                 if (cc.Name == "empty")
@@ -1288,10 +1303,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(e), 15, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(e), 16, ir);
                                 } break;
                             }
-                        case (16):
+                        case (17):
                             {
                                 cc = get_control(f);
                                 if (cc.Name == "empty")
@@ -1300,10 +1315,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(f), 16, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(f), 17, ir);
                                 } break;
                             }
-                        case (17):
+                        case (18):
                             {
                                 cc = get_control(g);
                                 if (cc.Name == "empty")
@@ -1312,10 +1327,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(g), 17, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(g), 18, ir);
                                 } break;
                             }
-                        case (18):
+                        case (19):
                             {
                                 cc = get_control(h);
                                 if (cc.Name == "empty")
@@ -1324,10 +1339,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(h), 18, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(h), 19, ir);
                                 } break;
                             }
-                        case (19):
+                        case (20):
                             {
                                 cc = get_control(i);
                                 if (cc.Name == "empty")
@@ -1336,10 +1351,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(i), 19, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(i), 20, ir);
                                 } break;
                             }
-                        case (20):
+                        case (21):
                             {
                                 cc = get_control(j);
                                 if (cc.Name == "empty")
@@ -1348,10 +1363,10 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(j), 20, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(j), 21, ir);
                                 } break;
                             }
-                        case (21):
+                        case (22):
                             {
                                 cc = get_control(k);
                                 if (cc.Name == "empty")
@@ -1360,7 +1375,19 @@ namespace Time_Table_Project
                                 }
                                 else
                                 {
-                                    tableLayoutPanel1.Controls.Add(get_control(k), 21, ir);
+                                    tableLayoutPanel1.Controls.Add(get_control(k), 22, ir);
+                                } break;
+                            }
+                        case (23):
+                            {
+                                cc = get_control(l);
+                                if (cc.Name == "empty")
+                                {
+                                    //do nothing
+                                }
+                                else
+                                {
+                                    tableLayoutPanel1.Controls.Add(get_control(l), 23, ir);
                                 } break;
                             }
                     }

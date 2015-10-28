@@ -41,6 +41,7 @@ namespace Time_Table_Project
             this.panel5 = new System.Windows.Forms.Panel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -90,15 +91,16 @@ namespace Time_Table_Project
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -147,29 +149,32 @@ namespace Time_Table_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 22;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.542515F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545329F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.548977F));
+            this.tableLayoutPanel1.ColumnCount = 24;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166666F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label25, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.label24, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.label23, 0, 9);
@@ -181,7 +186,6 @@ namespace Time_Table_Project
             this.tableLayoutPanel1.Controls.Add(this.label17, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox13, 10, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox12, 9, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox11, 8, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox10, 7, 0);
@@ -191,47 +195,59 @@ namespace Time_Table_Project
             this.tableLayoutPanel1.Controls.Add(this.textBox6, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 12, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 13, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox14, 14, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox15, 15, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox16, 16, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox17, 17, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox18, 18, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox19, 19, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox20, 20, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 21, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 11, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 11, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 11, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 11, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 11, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 11, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 11, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 11, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 11, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 11, 10);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 11, 11);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 23, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox20, 21, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox19, 20, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox18, 19, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox17, 18, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox16, 17, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox15, 16, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox14, 15, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox3, 14, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 13, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox13, 11, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 12, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 12, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 12, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 12, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 12, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 12, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 12, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 12, 8);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 12, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 12, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 12, 11);
+            this.tableLayoutPanel1.Controls.Add(this.textBox21, 10, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox22, 22, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 57);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 12;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.682198F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.682196F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392526F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1298, 629);
             this.tableLayoutPanel1.TabIndex = 4;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(166, 52);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(47, 45);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
             // 
             // label25
             // 
@@ -336,17 +352,17 @@ namespace Time_Table_Project
             // textBox13
             // 
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(584, 4);
+            this.textBox13.Location = new System.Drawing.Point(598, 4);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(51, 40);
+            this.textBox13.Size = new System.Drawing.Size(47, 40);
             this.textBox13.TabIndex = 17;
             this.textBox13.Text = "Pending";
             // 
             // textBox12
             // 
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(526, 4);
+            this.textBox12.Location = new System.Drawing.Point(490, 4);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(46, 40);
@@ -356,7 +372,7 @@ namespace Time_Table_Project
             // textBox11
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(468, 4);
+            this.textBox11.Location = new System.Drawing.Point(436, 4);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(46, 40);
@@ -367,7 +383,7 @@ namespace Time_Table_Project
             // textBox10
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(410, 4);
+            this.textBox10.Location = new System.Drawing.Point(382, 4);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(46, 40);
@@ -377,7 +393,7 @@ namespace Time_Table_Project
             // textBox9
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Location = new System.Drawing.Point(352, 4);
+            this.textBox9.Location = new System.Drawing.Point(328, 4);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(46, 40);
@@ -387,7 +403,7 @@ namespace Time_Table_Project
             // textBox8
             // 
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(294, 4);
+            this.textBox8.Location = new System.Drawing.Point(274, 4);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(46, 40);
@@ -397,7 +413,7 @@ namespace Time_Table_Project
             // textBox7
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(236, 4);
+            this.textBox7.Location = new System.Drawing.Point(220, 4);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(46, 40);
@@ -407,7 +423,7 @@ namespace Time_Table_Project
             // textBox6
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(178, 4);
+            this.textBox6.Location = new System.Drawing.Point(166, 4);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(46, 40);
@@ -417,7 +433,7 @@ namespace Time_Table_Project
             // textBox5
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(120, 4);
+            this.textBox5.Location = new System.Drawing.Point(112, 4);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(46, 40);
@@ -428,7 +444,7 @@ namespace Time_Table_Project
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(62, 4);
+            this.textBox4.Location = new System.Drawing.Point(58, 4);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(46, 40);
@@ -438,100 +454,100 @@ namespace Time_Table_Project
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(700, 4);
+            this.textBox2.Location = new System.Drawing.Point(706, 4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(51, 40);
+            this.textBox2.Size = new System.Drawing.Size(47, 40);
             this.textBox2.TabIndex = 22;
             this.textBox2.Text = "Pablo";
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(758, 4);
+            this.textBox3.Location = new System.Drawing.Point(760, 4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 40);
+            this.textBox3.Size = new System.Drawing.Size(47, 40);
             this.textBox3.TabIndex = 23;
             this.textBox3.Text = "Drop offs";
             // 
             // textBox14
             // 
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Location = new System.Drawing.Point(816, 4);
+            this.textBox14.Location = new System.Drawing.Point(814, 4);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(51, 40);
+            this.textBox14.Size = new System.Drawing.Size(47, 40);
             this.textBox14.TabIndex = 24;
             this.textBox14.Text = "Juan";
             // 
             // textBox15
             // 
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox15.Location = new System.Drawing.Point(874, 4);
+            this.textBox15.Location = new System.Drawing.Point(868, 4);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(51, 40);
+            this.textBox15.Size = new System.Drawing.Size(47, 40);
             this.textBox15.TabIndex = 25;
             this.textBox15.Text = "Brad";
             // 
             // textBox16
             // 
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox16.Location = new System.Drawing.Point(932, 4);
+            this.textBox16.Location = new System.Drawing.Point(922, 4);
             this.textBox16.Multiline = true;
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(51, 40);
+            this.textBox16.Size = new System.Drawing.Size(47, 40);
             this.textBox16.TabIndex = 26;
             this.textBox16.Text = "Kevin";
             // 
             // textBox17
             // 
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Location = new System.Drawing.Point(990, 4);
+            this.textBox17.Location = new System.Drawing.Point(976, 4);
             this.textBox17.Multiline = true;
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(51, 40);
+            this.textBox17.Size = new System.Drawing.Size(47, 40);
             this.textBox17.TabIndex = 27;
             this.textBox17.Text = "Bobalu";
             // 
             // textBox18
             // 
             this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox18.Location = new System.Drawing.Point(1048, 4);
+            this.textBox18.Location = new System.Drawing.Point(1030, 4);
             this.textBox18.Multiline = true;
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(51, 40);
+            this.textBox18.Size = new System.Drawing.Size(47, 40);
             this.textBox18.TabIndex = 28;
             this.textBox18.Text = "Brandon";
             // 
             // textBox19
             // 
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox19.Location = new System.Drawing.Point(1106, 4);
+            this.textBox19.Location = new System.Drawing.Point(1084, 4);
             this.textBox19.Multiline = true;
             this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(51, 40);
+            this.textBox19.Size = new System.Drawing.Size(47, 40);
             this.textBox19.TabIndex = 29;
             this.textBox19.Text = "Javier";
             // 
             // textBox20
             // 
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox20.Location = new System.Drawing.Point(1164, 4);
+            this.textBox20.Location = new System.Drawing.Point(1138, 4);
             this.textBox20.Multiline = true;
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(51, 40);
+            this.textBox20.Size = new System.Drawing.Size(47, 40);
             this.textBox20.TabIndex = 30;
             this.textBox20.Text = "Micheal";
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(1222, 4);
+            this.textBox1.Location = new System.Drawing.Point(1246, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 40);
+            this.textBox1.Size = new System.Drawing.Size(48, 40);
             this.textBox1.TabIndex = 21;
             this.textBox1.Text = "Pending";
             // 
@@ -539,7 +555,7 @@ namespace Time_Table_Project
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(642, 49);
+            this.label1.Location = new System.Drawing.Point(652, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 35);
             this.label1.TabIndex = 31;
@@ -549,7 +565,7 @@ namespace Time_Table_Project
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(642, 101);
+            this.label2.Location = new System.Drawing.Point(652, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 35);
             this.label2.TabIndex = 32;
@@ -559,7 +575,7 @@ namespace Time_Table_Project
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(642, 153);
+            this.label5.Location = new System.Drawing.Point(652, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 35);
             this.label5.TabIndex = 33;
@@ -569,7 +585,7 @@ namespace Time_Table_Project
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(642, 205);
+            this.label6.Location = new System.Drawing.Point(652, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 35);
             this.label6.TabIndex = 34;
@@ -579,7 +595,7 @@ namespace Time_Table_Project
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(642, 257);
+            this.label7.Location = new System.Drawing.Point(652, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 35);
             this.label7.TabIndex = 35;
@@ -589,7 +605,7 @@ namespace Time_Table_Project
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(642, 309);
+            this.label8.Location = new System.Drawing.Point(652, 309);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(22, 35);
             this.label8.TabIndex = 36;
@@ -599,7 +615,7 @@ namespace Time_Table_Project
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(642, 361);
+            this.label9.Location = new System.Drawing.Point(652, 361);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 35);
             this.label9.TabIndex = 37;
@@ -609,7 +625,7 @@ namespace Time_Table_Project
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(642, 413);
+            this.label10.Location = new System.Drawing.Point(652, 413);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(22, 35);
             this.label10.TabIndex = 38;
@@ -619,7 +635,7 @@ namespace Time_Table_Project
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(642, 465);
+            this.label11.Location = new System.Drawing.Point(652, 465);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(22, 35);
             this.label11.TabIndex = 39;
@@ -629,7 +645,7 @@ namespace Time_Table_Project
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(642, 517);
+            this.label12.Location = new System.Drawing.Point(652, 517);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(22, 35);
             this.label12.TabIndex = 40;
@@ -639,7 +655,7 @@ namespace Time_Table_Project
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(642, 569);
+            this.label13.Location = new System.Drawing.Point(652, 569);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(22, 35);
             this.label13.TabIndex = 41;
@@ -688,7 +704,7 @@ namespace Time_Table_Project
             this.label4.BackColor = System.Drawing.Color.Yellow;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(524, 7);
+            this.label4.Location = new System.Drawing.Point(528, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 34);
             this.label4.TabIndex = 2;
@@ -725,19 +741,30 @@ namespace Time_Table_Project
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(10, 76);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(903, 269);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
             // timer2
             // 
             this.timer2.Interval = 1000000;
             this.timer2.Tick += new System.EventHandler(this.reading_10mints_delay);
+            // 
+            // textBox21
+            // 
+            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox21.Location = new System.Drawing.Point(544, 4);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(48, 40);
+            this.textBox21.TabIndex = 42;
+            this.textBox21.Text = "Kalpesh";
+            // 
+            // textBox22
+            // 
+            this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox22.Location = new System.Drawing.Point(1192, 4);
+            this.textBox22.Multiline = true;
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(48, 40);
+            this.textBox22.TabIndex = 43;
+            this.textBox22.Text = "Kalpesh";
             // 
             // Form1
             // 
@@ -746,7 +773,6 @@ namespace Time_Table_Project
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1299, 689);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyPreview = true;
@@ -760,10 +786,10 @@ namespace Time_Table_Project
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -825,6 +851,8 @@ namespace Time_Table_Project
         private Label label12;
         private Label label13;
         private Timer timer2;
+        private TextBox textBox21;
+        private TextBox textBox22;
 
     }
 }
