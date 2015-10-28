@@ -10,9 +10,9 @@ namespace Remote_Scheduller_Interface
     {
         void db_Connection(string date, int number_of_Line);
 
-        void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele);
+        void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe);
 
-        void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele);
+        void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe);
 
         bool search_date_of_left_day(string date, int li);
 
