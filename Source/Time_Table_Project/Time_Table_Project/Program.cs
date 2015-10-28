@@ -45,7 +45,7 @@ namespace Time_Table_Project
 
             try
             {
-                myConn.Open();
+                my//conn.Open();
 
                 // Get a list of processes to kill.
                 MyReader = myCmd.ExecuteReader();
@@ -84,7 +84,7 @@ namespace Time_Table_Project
 
                 if (myConn != null && myConn.State == ConnectionState.Open)
                 {
-                    myConn.Close();
+                    my//conn.Close();
                 }
             }
 

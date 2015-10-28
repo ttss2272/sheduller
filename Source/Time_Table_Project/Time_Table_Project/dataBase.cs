@@ -10,17 +10,48 @@ namespace Time_Table_Project
 {
     class dataBase
     {
-        public void add_date_firstDay(string date,int line,string first, string sec, string thi, string four, string fiv, string six, string sev,string eig,string nin,string ten,string ele)
+        string connect = "datasource = localhost; port = 3306;Connection Timeout=30; pooling=true; Max Pool Size=32767;username = root; password = ;";
+        static int count = 0,closeCount=0;
+       
+        public MySqlConnection GetConnection()
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn=null;
+            try
+            {
+                conn = new MySqlConnection(connect);
+               
+                if (conn.State.ToString() == "Open")
+                {
+                    conn.Close();
+                }
+                else
+                {
+                    conn.Open();
+                    count++;
+                }
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show(ex.InnerException.ToString());
+            }
+            return conn;
+            
+        }
+
+
+        public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        {
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
+            //GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', ' ')", conn);
 
             MySqlDataReader reader;
             try
             {
-                conn.Open();
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
@@ -32,20 +63,23 @@ namespace Time_Table_Project
             {
                 MessageBox.Show(e.Message);
             }
+            //conn.Close();
             conn.Close();
+            closeCount++;
         }
 
-        public void add_data_secondDay(string date, int line,string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void add_data_secondDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', ' ')", conn);
 
             MySqlDataReader reader;
             try
             {
-                conn.Open();
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
@@ -57,19 +91,20 @@ namespace Time_Table_Project
             {
                 MessageBox.Show(e.Message);
             }
-            conn.Close();
+            //conn.Close();
         }
 
-        public void update_first_table_data(string date,int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
-                    '" + date + "',line = '"+line+"',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin+ "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '"+date+"' AND line = '"+line+"'" , conn);
+                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '" + date + "' AND line = '" + line + "'", conn);
             MySqlDataReader reader;
             try
             {
-                conn.Open();
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
@@ -81,20 +116,23 @@ namespace Time_Table_Project
             {
                 MessageBox.Show(e.Message);
             }
+            //conn.Close();
             conn.Close();
+            closeCount++;
         }
 
         // prolem only in left side data updation :/
-        public void update_secondtable_data(string date,int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void update_secondtable_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
-                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '"+date+"' AND line = '" + line + "'", conn);
+                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '" + date + "' AND line = '" + line + "'", conn);
             MySqlDataReader reader;
             try
             {
-                conn.Open();
+                //conn.Open();
 
                 reader = sda.ExecuteReader();
                 while (reader.Read())
@@ -107,7 +145,9 @@ namespace Time_Table_Project
             {
                 MessageBox.Show(e.Message);
             }
+            //conn.Close();
             conn.Close();
+            closeCount++;
         }
 
         Boolean found = false;
@@ -116,8 +156,9 @@ namespace Time_Table_Project
 
         public string reading_left_date(string date, int number_of_Line)
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"select * from shedulling.tablelayout1 where date = '" + date + "' AND line = '" + number_of_Line + "'", conn);
             MySqlDataReader reader;
 
@@ -126,7 +167,50 @@ namespace Time_Table_Project
             string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
             try
             {
-                conn.Open();
+                //conn.Open();
+                reader = sda.ExecuteReader();
+                while (reader.Read())
+                {
+                    a = reader.GetString(2);
+                    b = reader.GetString(3);
+                    c = reader.GetString(4);
+                    d = reader.GetString(5);
+                    e = reader.GetString(6);
+                    f = reader.GetString(7);
+                    g = reader.GetString(8);
+                    h = reader.GetString(9);
+                    i = reader.GetString(10);
+                    j = reader.GetString(11);
+                    k = reader.GetString(12);
+
+                    s = a + " !" + b + " !" + c + " !" + d + " !" + e + " !" + f + "! " + g + " !" + h + "! " + i + " !" + j + " !" + k + " !";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            conn.Close();
+            closeCount++;
+            return s;
+        }
+        
+        public string reading_rightt_date(string date, int number_of_Line)
+        {
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
+            MySqlCommand sda = new MySqlCommand(@"select * from shedulling.tablelayout1 where date = '" + date + "' AND line = '" + number_of_Line + "'", conn);
+            MySqlDataReader reader;
+
+            //int r = tableLayoutPanel1.RowCount;
+
+            int r = 0; // count rows
+            //int cl = 11; // number of columns
+            string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
+            try
+            {
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
@@ -151,63 +235,23 @@ namespace Time_Table_Project
             }
             return s;
         }
- 
-
-         public string reading_rightt_date(string date, int number_of_Line)
- {
-     string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-     MySqlConnection conn = new MySqlConnection(connect);
-     MySqlCommand sda = new MySqlCommand(@"select * from shedulling.tablelayout1 where date = '" + date + "' AND line = '" + number_of_Line + "'", conn);
-     MySqlDataReader reader;
-
-     //int r = tableLayoutPanel1.RowCount;
-
-     int r = 0; // count rows
-     //int cl = 11; // number of columns
-     string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
-     try
-     {
-         conn.Open();
-         reader = sda.ExecuteReader();
-         while (reader.Read())
-         {
-             a = reader.GetString(2);
-             b = reader.GetString(3);
-             c = reader.GetString(4);
-             d = reader.GetString(5);
-             e = reader.GetString(6);
-             f = reader.GetString(7);
-             g = reader.GetString(8);
-             h = reader.GetString(9);
-             i = reader.GetString(10);
-             j = reader.GetString(11);
-             k = reader.GetString(12);
-
-             s = a + " !" + b + " !" + c + " !" + d + " !" + e + " !" + f + "! " + g + " !" + h + "! " + i + " !" + j + " !" + k + " !";
-         }
-     }
-     catch (Exception ex)
-     {
-         MessageBox.Show(ex.Message);
-     }
-     return s;
- }
-
-
+        
         //searching for date of right day if it already exist in database
-        public bool search_date_of_right_day(string date,int l)
+        public bool search_date_of_right_day(string date, int l)
         {
             // add Line integer as i did in finding dates in left date in db :)  
             string first_table;
+            MySqlConnection conn = GetConnection();
             try
             {
-                string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-                MySqlConnection conn = new MySqlConnection(connect);
+                //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+                //MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
+               
                 MySqlCommand sda = new MySqlCommand(@"Select date,line from shedulling.tablelayout1", conn);
                 MySqlDataReader reader;
                 //openingthe Connection
-                conn.Open();
+                //conn.Open();
                 //executing the querey;
                 reader = sda.ExecuteReader();
                 //read data from database untill the read object has no data
@@ -227,31 +271,39 @@ namespace Time_Table_Project
             {
                 Console.WriteLine(e.Message);
             }
+            conn.Close();
+            closeCount++;
             return found;
         }
 
         //searching for date of left day if it already exist in database
-        public bool search_date_of_left_day(string date,int li)
+        public bool search_date_of_left_day(string date, int li)
         {
             string first_table;
+            MySqlConnection conn = GetConnection();
             try
             {
-                string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-                MySqlConnection conn = new MySqlConnection(connect);
+                //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+                //MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
+                
                 MySqlCommand sda1 = new MySqlCommand(@"Select date,line from shedulling.tablelayout1", conn);
                 MySqlDataReader reader;
                 //openingthe Connection
-                conn.Open();
+              
+                    //conn.Open();
+
+                
+               
                 //executing the querey;
                 reader = sda1.ExecuteReader();
-                
+
                 //read data from database untill the read object has no data
                 while (reader.Read())
                 {
                     first_table = reader.GetString(0);
-                    string ll  = reader.GetString(1);
-                    if (first_table == date && Convert.ToInt32(ll)==li )
+                    string ll = reader.GetString(1);
+                    if (first_table == date && Convert.ToInt32(ll) == li)
                     {
                         date_of_Table2 = true;
                         break;
@@ -263,21 +315,25 @@ namespace Time_Table_Project
             {
                 Console.WriteLine(e.Message);
             }
+            conn.Close();
+            closeCount++;
             return date_of_Table2;
+
         }
 
         // adding names to database
         public void adding_names()
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.names values
                     (' ',' Pablo  ',' Drop Offs','Juan','Brad','Kevin','bobalu','Brandon', 'Javier','Micheal','Pending')", conn);
 
             MySqlDataReader reader;
             try
             {
-                conn.Open();
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
@@ -288,14 +344,17 @@ namespace Time_Table_Project
             {
                 MessageBox.Show(e.Message);
             }
+            //conn.Close();
             conn.Close();
+            closeCount++;
         }
 
         // adding Dates to database
         public void adding_dates()
         {
-            string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-            MySqlConnection conn = new MySqlConnection(connect);
+            //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.dates values
                     (' 8:00
 -----
@@ -324,7 +383,7 @@ namespace Time_Table_Project
             MySqlDataReader reader;
             try
             {
-                conn.Open();
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
@@ -335,10 +394,10 @@ namespace Time_Table_Project
             {
                 MessageBox.Show(e.Message);
             }
+            //conn.Close();
             conn.Close();
+            closeCount++;
         }
-
-
-        
     }
+
 }

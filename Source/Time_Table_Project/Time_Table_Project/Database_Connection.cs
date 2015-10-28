@@ -10,17 +10,19 @@ namespace Time_Table_Project
 {
     class Database_Connection
     {
+        dataBase db = new dataBase();
         public Boolean user_connection(string user, string pass)
         {
             try
             {
                 //Connecting to database
                 string connect = "datasource = localhost; port = 3306; username = root; password = ;";
-                MySqlConnection conn = new MySqlConnection(connect);
+                //MySqlConnection conn = new MySqlConnection(connect);
                 //Querey to select username and password
+                MySqlConnection conn = db.GetConnection();
                 MySqlCommand sda = new MySqlCommand(@"Select * from shedulling.users where Username = '" + user + "' and password = '" + pass + ";'", conn);
                 MySqlDataReader reader;
-                conn.Open();
+                //conn.Open();
                 reader = sda.ExecuteReader();
                 int count = 0;
                 //Reading the Username and Password from database
