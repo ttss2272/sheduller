@@ -27,7 +27,7 @@ namespace Time_Table_Project
         // add server Mac Adress and replace it with localhost
         RemoteIR obj = (RemoteIR)Activator.GetObject(
                 typeof(Remote_Scheduller_Interface.RemoteIR),
-                "tcp://192.168.1.23:8089/RemoteScheduller");
+                "tcp://localhost:8089/RemoteScheduller");
 
         public static void Mian()
         {
@@ -36,11 +36,25 @@ namespace Time_Table_Project
         
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "")
+            if (textBox1.Text == "" && textBox2.Text == "")
             {
-                MessageBox.Show("Enter Username and Password");
+                MessageBox.Show("Please Enter User Name and Password","Login Failed",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 textBox1.Focus();
             }
+            else if(textBox1.Text=="" && textBox2.Text!="")
+            {
+                MessageBox.Show("Please Enter User Name", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                textBox1.Focus();
+            }
+            else if (textBox1.Text != "" && textBox2.Text == "")
+            {
+                MessageBox.Show("Please Enter Password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                textBox2.Focus();
+            }
+
+
             else
             {
                 try
