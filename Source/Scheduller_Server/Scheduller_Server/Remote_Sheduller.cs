@@ -26,7 +26,7 @@ namespace Scheduller_Server
         public MySqlCommand sda;
         public MySqlConnection conn;
 
-        string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
+        string connect = "datasource = localhost; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=2000;  username = root; password = ;";
 
         public void db_Connection(string date, int number_of_Line)
         {
@@ -40,7 +40,7 @@ namespace Scheduller_Server
         {
             sda = new MySqlCommand(@"select * from shedulling.tablelayout1 where date = '" + date + "' AND line = '" + number_of_line.ToString() + "'", conn);
             //int r = tableLayoutPanel1.RowCount;
-            string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
+            string a, b, c, d, e, f, g, h, i, j, k,l; // storing data from database
             try
             {
                 conn.Open();
@@ -58,8 +58,8 @@ namespace Scheduller_Server
                     i = reader.GetString(10);
                     j = reader.GetString(11);
                     k = reader.GetString(12);
-
-                    s = a + "@" + b + "@" + c + "@" + d + "@" + e + "@" + f + "@" + g + "@" + h + "@" + i + "@" + j + "@" + k;
+                    l = reader.GetString(13);
+                    s = a + "@" + b + "@" + c + "@" + d + "@" + e + "@" + f + "@" + g + "@" + h + "@" + i + "@" + j + "@" + k + "@"+l;
                     //MessageBox.Show(s);
                }
                 conn.Close();
@@ -90,7 +90,7 @@ namespace Scheduller_Server
         public string reading_right_date(string date, int number_of_line)
         {
             sda = new MySqlCommand(@"select * from shedulling.tablelayout1 where date = '" + date + "' AND line = '" + number_of_line.ToString() + "'", conn);
-            string a, b, c, d, e, f, g, h, i, j, k; // storing data from database
+            string a, b, c, d, e, f, g, h, i, j, k,l; // storing data from database
             try
             {
                 conn.Open();
@@ -108,8 +108,9 @@ namespace Scheduller_Server
                     i = reader.GetString(10);
                     j = reader.GetString(11);
                     k = reader.GetString(12);
+                    l = reader.GetString(13);
 
-                    s = a + "@" + b + "@" + c + "@" + d + "@" + e +  "@" + f + "@ " + g + "@" + h + "@" + i + "@" + j + "@" + k + "@";
+                    s = a + "@" + b + "@" + c + "@" + d + "@" + e +  "@" + f + "@ " + g + "@" + h + "@" + i + "@" + j + "@" + k + "@"+l+"@";
                 }
                 if(reader.Read() == null)
                 {
@@ -138,12 +139,14 @@ namespace Scheduller_Server
             return s;
         }
 
-        public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
             //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "','"+twe+ "')", conn);
+                    
+
 
             MySqlDataReader reader;
             try
@@ -171,14 +174,14 @@ namespace Scheduller_Server
             }
                     }
         
-        public void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele)
+        public void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
             string da = date;
             int l = line;
             //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
-            
-            MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' where date = '" + da + "' AND line = '"+l.ToString()+"';", conn);
+
+            MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' ,col12='" + twe + "'where date = '" + da + "' AND line = '" + l.ToString() + "';", conn);
 
             MySqlDataReader reader;
             try
