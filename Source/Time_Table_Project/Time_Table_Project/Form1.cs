@@ -931,6 +931,8 @@ namespace Time_Table_Project
                 }
 
                 string dat = dateTimePicker1.Text;
+                //DateTime dat1 = Convert.ToDateTime(dateTimePicker1.Value);
+                //string dat1.ToShortDateString();
                 col = 0;
                 if (db.search_date_of_left_day(dat, line))
                 {
@@ -999,6 +1001,8 @@ namespace Time_Table_Project
                         kll = null;
                     }
                 }
+                //DateTime dat1 = Convert.ToDateTime(dateTimePicker2.Text.ToString());
+                //string dat = dat1.ToShortDateString();
                 string dat = dateTimePicker2.Text;
                 col = 0;
                 if (db.search_date_of_left_day(dat, line1))
@@ -1681,9 +1685,10 @@ namespace Time_Table_Project
             loading_page_Date_Checker(dateTimePicker1.Text);
             loading_page_RightDate_Checkeer(dateTimePicker2.Text);
         }
-
+        int dateTimePickerCount = 0;
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+           // if(dateTimePicker1.va
             //try
             //{
             //    reading_firstDay_table();
