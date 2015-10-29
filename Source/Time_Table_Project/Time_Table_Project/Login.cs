@@ -69,7 +69,7 @@ namespace Time_Table_Project
                     }
                     else
                     {
-                        MessageBox.Show("Please Enter Correct UserName And Password");
+                        MessageBox.Show("Please Enter Correct UserName And Password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBox1.Text = null;
                         textBox2.Text = null;
                         textBox1.Focus();
