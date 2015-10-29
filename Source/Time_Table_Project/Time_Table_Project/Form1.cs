@@ -749,7 +749,7 @@ namespace Time_Table_Project
             {
 //                MessageBox.Show(kl +" Date is Found");
                 clear_right_date();
-                for (int num = 0; num < 11 ; num++)
+                for (int num = 0; num < 12 ; num++)
                 {
                     read_secondDay_from_DB(kl, num);
                 }
@@ -906,7 +906,7 @@ namespace Time_Table_Project
         {
             dataBase db = new dataBase();
             for (int i = 0; i < this.tableLayoutPanel1.RowCount; i++)
-            {
+           {
                 for (int j = this.tableLayoutPanel1.ColumnCount / 2; j < this.tableLayoutPanel1.ColumnCount ; j++)
                 {
                     Control c = this.tableLayoutPanel1.GetControlFromPosition(j, i);
