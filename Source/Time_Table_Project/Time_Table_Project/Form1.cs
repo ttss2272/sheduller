@@ -19,7 +19,7 @@ namespace Time_Table_Project
     {
         TcpChannel chan = new TcpChannel();
       //  ChannelServices.RegisterChannel(chan);
-
+        static int num = 0;
         public Form1()
         {
             textBox_1 = new TextBox();
@@ -34,9 +34,9 @@ namespace Time_Table_Project
                 typeof(Remote_Scheduller_Interface.RemoteIR),
                 "tcp://localhost:8089/RemoteScheduller");
             
-        int pink = 0; int pink_change_Column = 10;
+        int pink = 0; int pink_change_Column = 11;
         int yellow = 0;
-        int yellow_change_column = 10;
+        int yellow_change_column = 11;
         bool dragged;
         private Point firstpoint = new Point();
 
@@ -53,157 +53,182 @@ namespace Time_Table_Project
         
         private void Pink_Post_Mouse_Click(object sender, MouseEventArgs e)
         {
-            if (pink == 9)
+            if (num == 20)
             {
-                pink_change_Column--;
-                yellow_change_column--;
-                pink = 0;
+
+                // dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+                pictureBox2.Enabled = false;
+                pictureBox1.Enabled = false;
+
+                reading_firstDay_table();
+                reading_SecondDay_table();
+
+                dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
+                dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+
+                loading_page_Date_Checker(dateTimePicker1.Text);
+
+                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+
+                pictureBox2.Enabled = true;
+                pictureBox1.Enabled = true;
+                num = 10;
             }
-            pink = pink + 1;
-           // label3.Enabled = false;
-            p1 = new Panel();
             
-            textBox_3 = new TextBox();
-            textBox_2 = new TextBox();
-            textBox_1 = new TextBox();
-            
-            Label l1 = new Label();
-            Label l2 = new Label();
-            Label l3 = new Label();
+            {
+                if (pink == 10)
+                {
+                    pink_change_Column = pink_change_Column + 12;
+                    yellow_change_column = yellow_change_column + 12;
+                    pink = 0;
+                }
+                pink = pink + 1;
+                num++;
+                // label3.Enabled = false;
+                p1 = new Panel();
 
-            textBox_1.BackColor = System.Drawing.Color.Pink;
-            textBox_2.BackColor = System.Drawing.Color.Pink;
-            textBox_3.BackColor = System.Drawing.Color.Pink;
+                textBox_3 = new TextBox();
+                textBox_2 = new TextBox();
+                textBox_1 = new TextBox();
 
+                Label l1 = new Label();
+                Label l2 = new Label();
+                Label l3 = new Label();
 
-            p1.Location = new Point(400, 300);
-            p1.Visible = true;
-            p1.BackColor = System.Drawing.Color.Pink;
-            tableLayoutPanel1.Controls.Add(p1, pink_change_Column, pink);
-
-            p1.AllowDrop = true;
-            p1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-
-            p1.Controls.Add(textBox_3);
-            p1.Controls.Add(textBox_2);
-            p1.Controls.Add(textBox_1);
-
-            //
-            // TextBox3 
-            // 
-            textBox_3.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox_3.Location = new System.Drawing.Point(-2, 22);
-            textBox_3.Margin = new System.Windows.Forms.Padding(0);
-            textBox_3.Multiline = true;
-            textBox_3.Name = "textBox3";
-            textBox_3.TextAlign = HorizontalAlignment.Left;
-            textBox_3.Size = new System.Drawing.Size(p1.Width-13, 42);
-            textBox_3.TabIndex = 2;
-            textBox_3.Text = "";
-            textBox_3.BorderStyle = BorderStyle.None;
-
-            textBox_3.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_3_KeyDown);
-
-            // 
-            // textBox2
-            // 
-            textBox_2.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox_2.Location = new System.Drawing.Point(0, 12);
-            textBox_2.Margin = new System.Windows.Forms.Padding(0);
-            textBox_2.Multiline = false;
-            textBox_2.Name = "textBox2";
-            textBox_2.TextAlign = HorizontalAlignment.Left;
-            textBox_2.Size = new System.Drawing.Size(p1.Width - 15, 8);
-            textBox_2.TabIndex = 1;
-            textBox_2.Text = "";
-            textBox_2.BorderStyle = BorderStyle.None;
+                textBox_1.BackColor = System.Drawing.Color.Pink;
+                textBox_2.BackColor = System.Drawing.Color.Pink;
+                textBox_3.BackColor = System.Drawing.Color.Pink;
 
 
-            textBox_2.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_2_KeyDown);
+                p1.Location = new Point(400, 300);
+                p1.Visible = true;
+                p1.BackColor = System.Drawing.Color.Pink;
+                tableLayoutPanel1.Controls.Add(p1, pink_change_Column, pink);
 
-            // 
-            // textBox1
-            // 
-            textBox_1.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox_1.Location = new System.Drawing.Point(0, 0);
-            textBox_1.Margin = new System.Windows.Forms.Padding(0);
-            textBox_1.Multiline = false;
-            textBox_1.Name = "textBox1";
-            textBox_1.TextAlign = HorizontalAlignment.Left;
-            textBox_1.ShortcutsEnabled = false;
-            textBox_1.Size = new System.Drawing.Size(p1.Width, 12);
-            textBox_1.TabIndex = 0;
-            textBox_1.Text = "";
-            textBox_1.BorderStyle = BorderStyle.None;
+                p1.AllowDrop = true;
+                p1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            textBox_1.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_1_KeyDown);
+                p1.Controls.Add(textBox_3);
+                p1.Controls.Add(textBox_2);
+                p1.Controls.Add(textBox_1);
 
-            Graphics g = p1.CreateGraphics();
-            
-            //p1.Location = new System.Drawing.Point(132, 114);
-            p1.Name = "p1";
-            int height = tableLayoutPanel1.Height / 12;
-            int width = tableLayoutPanel1.Width / 22;
-            p1.Size = new System.Drawing.Size(width, height);
-//            MessageBox.Show("p1 Height = "+height +" and width = "+width);
-            p1.TabIndex = 7;
+                //
+                // TextBox3 
+                // 
+                textBox_3.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_3.Location = new System.Drawing.Point(-2, 22);
+                textBox_3.Margin = new System.Windows.Forms.Padding(0);
+                textBox_3.Multiline = true;
+                textBox_3.Name = "textBox3";
+                textBox_3.TextAlign = HorizontalAlignment.Left;
+                textBox_3.Size = new System.Drawing.Size(p1.Width - 13, 42);
+                textBox_3.TabIndex = 2;
+                textBox_3.Text = "";
+                textBox_3.BorderStyle = BorderStyle.None;
 
-            p1.Controls.Add(textBox_1);
-            p1.Controls.Add(textBox_2);
-            p1.Controls.Add(textBox_3);
+                textBox_3.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_3_KeyDown);
 
-            //
-            // Label1
-            //
-            l1.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
-            l1.BackColor = System.Drawing.Color.Pink;
-            l1.BorderStyle = BorderStyle.FixedSingle;
-            l1.Location = new System.Drawing.Point(43, 12);
-
-            p1.Controls.Add(l1);
-            l1.Visible = true;
-
-            //
-            // Label2
-            //
-            l2.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
-            l2.BackColor = System.Drawing.Color.Pink;
-            l2.BorderStyle = BorderStyle.FixedSingle;
-            l2.Location = new System.Drawing.Point(43, 18);
-
-            p1.Controls.Add(l2);
-            l2.Visible = true;
+                // 
+                // textBox2
+                // 
+                textBox_2.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_2.Location = new System.Drawing.Point(0, 12);
+                textBox_2.Margin = new System.Windows.Forms.Padding(0);
+                textBox_2.Multiline = false;
+                textBox_2.Name = "textBox2";
+                textBox_2.TextAlign = HorizontalAlignment.Left;
+                textBox_2.Size = new System.Drawing.Size(p1.Width - 15, 8);
+                textBox_2.TabIndex = 1;
+                textBox_2.Text = "";
+                textBox_2.BorderStyle = BorderStyle.None;
 
 
-            //
-            // Label3
-            //
-            l3.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
-            l3.BackColor = System.Drawing.Color.Pink;
-            l3.BorderStyle = BorderStyle.FixedSingle;
-            l3.Location = new System.Drawing.Point(43, 24);
+                textBox_2.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_2_KeyDown);
 
-            p1.Controls.Add(l3);
+                // 
+                // textBox1
+                // 
+                textBox_1.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_1.Location = new System.Drawing.Point(0, 0);
+                textBox_1.Margin = new System.Windows.Forms.Padding(0);
+                textBox_1.Multiline = false;
+                textBox_1.Name = "textBox1";
+                textBox_1.TextAlign = HorizontalAlignment.Left;
+                textBox_1.ShortcutsEnabled = false;
+                textBox_1.Size = new System.Drawing.Size(p1.Width, 12);
+                textBox_1.TabIndex = 0;
+                textBox_1.Text = "";
+                textBox_1.BorderStyle = BorderStyle.None;
 
-            l3.Visible = true;
-            
-            l1.MouseClick += label1_MouseClick;
-            l2.MouseClick += label2_MouseClick;
-            l3.MouseClick += label3_MouseClick;
+                textBox_1.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_1_KeyDown);
 
-           // p1.Location = new System.Drawing.Point(132, 114);
-            p1.Name = "p1";
-            p1.Size = new System.Drawing.Size(70, 75);
-            p1.TabIndex = 7;
-            
-            p1.MouseClick += new System.Windows.Forms.MouseEventHandler(p1_MouseClick);
-            p1.MouseDown += new System.Windows.Forms.MouseEventHandler(p1_MouseDown);
-            p1.MouseMove += new System.Windows.Forms.MouseEventHandler(p1_MouseMove);
-            p1.MouseUp += new System.Windows.Forms.MouseEventHandler(p1_MouseUp);
+                Graphics g = p1.CreateGraphics();
 
-            // Delete Button pressed
-            p1.KeyDown += new System.Windows.Forms.KeyEventHandler(p1_KeyDown);
-            p1.Paint += (p1_Paint);
+                //p1.Location = new System.Drawing.Point(132, 114);
+                p1.Name = "p1";
+                int height = tableLayoutPanel1.Height / 12;
+                int width = tableLayoutPanel1.Width / 22;
+                p1.Size = new System.Drawing.Size(width, height);
+                //            MessageBox.Show("p1 Height = "+height +" and width = "+width);
+                p1.TabIndex = 7;
+
+                p1.Controls.Add(textBox_1);
+                p1.Controls.Add(textBox_2);
+                p1.Controls.Add(textBox_3);
+
+                //
+                // Label1
+                //
+                l1.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
+                l1.BackColor = System.Drawing.Color.Pink;
+                l1.BorderStyle = BorderStyle.FixedSingle;
+                l1.Location = new System.Drawing.Point(43, 12);
+
+                p1.Controls.Add(l1);
+                l1.Visible = true;
+
+                //
+                // Label2
+                //
+                l2.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
+                l2.BackColor = System.Drawing.Color.Pink;
+                l2.BorderStyle = BorderStyle.FixedSingle;
+                l2.Location = new System.Drawing.Point(43, 18);
+
+                p1.Controls.Add(l2);
+                l2.Visible = true;
+
+
+                //
+                // Label3
+                //
+                l3.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
+                l3.BackColor = System.Drawing.Color.Pink;
+                l3.BorderStyle = BorderStyle.FixedSingle;
+                l3.Location = new System.Drawing.Point(43, 24);
+
+                p1.Controls.Add(l3);
+
+                l3.Visible = true;
+
+                l1.MouseClick += label1_MouseClick;
+                l2.MouseClick += label2_MouseClick;
+                l3.MouseClick += label3_MouseClick;
+
+                // p1.Location = new System.Drawing.Point(132, 114);
+                p1.Name = "p1";
+                p1.Size = new System.Drawing.Size(70, 75);
+                p1.TabIndex = 7;
+
+                p1.MouseClick += new System.Windows.Forms.MouseEventHandler(p1_MouseClick);
+                p1.MouseDown += new System.Windows.Forms.MouseEventHandler(p1_MouseDown);
+                p1.MouseMove += new System.Windows.Forms.MouseEventHandler(p1_MouseMove);
+                p1.MouseUp += new System.Windows.Forms.MouseEventHandler(p1_MouseUp);
+
+                // Delete Button pressed
+                p1.KeyDown += new System.Windows.Forms.KeyEventHandler(p1_KeyDown);
+                p1.Paint += (p1_Paint);
+            }
         }
 
         void p1_Paint(object sender, PaintEventArgs e)
@@ -477,153 +502,177 @@ namespace Time_Table_Project
 
         private void Yellow_label_mouse_Click(object sender, MouseEventArgs e)
         {
-            if (pink == 9)
+            if (num == 20)
             {
-                yellow_change_column--;
-                pink_change_Column--;
-                pink = 0;
+
+                // dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+                pictureBox2.Enabled = false;
+                pictureBox1.Enabled = false;
+
+                reading_firstDay_table();
+                reading_SecondDay_table();
+
+                dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
+                dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
+
+                loading_page_Date_Checker(dateTimePicker1.Text);
+
+                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+
+                pictureBox2.Enabled = true;
+                pictureBox1.Enabled = true;
+                num = 10;
             }
-            yellow = ++pink ;
-            Console.WriteLine("Yellow Column Number = "+yellow);
-            Panel p1 = new Panel();
+            {
+                if (pink == 10)
+                {
+                    yellow_change_column = yellow_change_column + 12;
+                    pink_change_Column = pink_change_Column + 12;
+                    pink = 0;
+                }
+                yellow = ++pink;
+                num++;
+                Console.WriteLine("Yellow Column Number = " + yellow);
+                Panel p1 = new Panel();
 
-//            p1.Location = new System.Drawing.Point(0, 114);
-            p1.Name = "p1";
-            int height = tableLayoutPanel1.Height / 12;
-            int width = tableLayoutPanel1.Width / 22;
-            p1.Size = new System.Drawing.Size(width, height);
-            p1.TabIndex = 7;
-
-            
-           // label4.Enabled = false;
-            
-            textBox_3 = new TextBox();
-            textBox_2 = new TextBox();
-            textBox_1 = new TextBox();
-
-            Label l1 = new Label();
-            Label l2 = new Label();
-            Label l3 = new Label();
-
-            textBox_1.BackColor = System.Drawing.Color.Yellow;
-            textBox_2.BackColor = System.Drawing.Color.Yellow;
-            textBox_3.BackColor = System.Drawing.Color.Yellow;
-
-            //p1.Location = new Point(20, 20);
-            p1.Visible = true;
-            p1.BackColor = System.Drawing.Color.Yellow;
-            tableLayoutPanel1.Controls.Add(p1, yellow_change_column, yellow);
-            
-            p1.AllowDrop = true;
-            p1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-
-            p1.Controls.Add(textBox_3);
-            p1.Controls.Add(textBox_2);
-            p1.Controls.Add(textBox_1);
-
-            //
-            // TextBox3 
-            // 
-            textBox_3.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox_3.Location = new System.Drawing.Point(-2, 22);
-            textBox_3.Margin = new System.Windows.Forms.Padding(0);
-            textBox_3.Multiline = true;
-            textBox_3.Name = "textBox3";
-            textBox_3.TextAlign = HorizontalAlignment.Left;
-            textBox_3.Size = new System.Drawing.Size(p1.Width-13, 42);
-            textBox_3.TabIndex = 2;
-            textBox_3.Text = "";
-            textBox_3.BorderStyle = BorderStyle.None;
-
-            textBox_3.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_3_KeyDown);
-
-            // 
-            // textBox2
-            // 
-            textBox_2.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox_2.Location = new System.Drawing.Point(0, 12);
-            textBox_2.Margin = new System.Windows.Forms.Padding(0);
-            textBox_2.Multiline = false;
-            textBox_2.Name = "textBox2";
-            textBox_2.TextAlign = HorizontalAlignment.Left;
-            textBox_2.Size = new System.Drawing.Size(p1.Width-14, 8);
-            textBox_2.TabIndex = 1;
-            textBox_2.Text = "";
-            textBox_2.BorderStyle = BorderStyle.None;
-
-            textBox_2.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_2_KeyDown);
-
-            // 
-            // textBox1
-            // 
-            textBox_1.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox_1.Location = new System.Drawing.Point(0, 0);
-            textBox_1.Margin = new System.Windows.Forms.Padding(0);
-            textBox_1.Multiline = false;
-            textBox_1.Name = "textBox1";
-            textBox_1.TextAlign = HorizontalAlignment.Left;
-            textBox_1.ShortcutsEnabled = false;
-            textBox_1.Size = new System.Drawing.Size(p1.Width, 12);
-            textBox_1.TabIndex = 0;
-            textBox_1.Text = "";
-            textBox_1.BorderStyle = BorderStyle.None;
-
-            textBox_1.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_1_KeyDown);
+                //            p1.Location = new System.Drawing.Point(0, 114);
+                p1.Name = "p1";
+                int height = tableLayoutPanel1.Height / 12;
+                int width = tableLayoutPanel1.Width / 22;
+                p1.Size = new System.Drawing.Size(width, height);
+                p1.TabIndex = 7;
 
 
-            p1.Controls.Add(textBox_1);
-            p1.Controls.Add(textBox_2);
-            p1.Controls.Add(textBox_3);
-            
-            // Mouse Clicks
-            p1.MouseClick += new System.Windows.Forms.MouseEventHandler(p1_yellow_MouseClick);
-            p1.MouseDown += new System.Windows.Forms.MouseEventHandler(p1_MouseDown);
-            p1.MouseMove += new System.Windows.Forms.MouseEventHandler(p1_yellow_MouseMove);
-            p1.MouseUp += new System.Windows.Forms.MouseEventHandler(p1_MouseUp);
+                // label4.Enabled = false;
 
-            //
-            // Label1
-            //
-            l1.Size = new System.Drawing.Size(p1.Width-42, p1.Height-45);
-            l1.BackColor = System.Drawing.Color.Yellow;
-            l1.BorderStyle = BorderStyle.FixedSingle;
-            l1.Location = new System.Drawing.Point(43, 12);
+                textBox_3 = new TextBox();
+                textBox_2 = new TextBox();
+                textBox_1 = new TextBox();
 
-            p1.Controls.Add(l1);
-            l1.Visible = true;
+                Label l1 = new Label();
+                Label l2 = new Label();
+                Label l3 = new Label();
 
-            //
-            // Label2
-            //
-            l2.Size = new System.Drawing.Size(p1.Width - 42, p1.Height-45);
-            l2.BackColor = System.Drawing.Color.Yellow;
-            l2.BorderStyle = BorderStyle.FixedSingle;
-            l2.Location = new System.Drawing.Point(43, 18);
+                textBox_1.BackColor = System.Drawing.Color.Yellow;
+                textBox_2.BackColor = System.Drawing.Color.Yellow;
+                textBox_3.BackColor = System.Drawing.Color.Yellow;
 
-            p1.Controls.Add(l2);
-            l2.Visible = true;
+                //p1.Location = new Point(20, 20);
+                p1.Visible = true;
+                p1.BackColor = System.Drawing.Color.Yellow;
+                tableLayoutPanel1.Controls.Add(p1, yellow_change_column, yellow);
+
+                p1.AllowDrop = true;
+                p1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+                p1.Controls.Add(textBox_3);
+                p1.Controls.Add(textBox_2);
+                p1.Controls.Add(textBox_1);
+
+                //
+                // TextBox3 
+                // 
+                textBox_3.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_3.Location = new System.Drawing.Point(-2, 22);
+                textBox_3.Margin = new System.Windows.Forms.Padding(0);
+                textBox_3.Multiline = true;
+                textBox_3.Name = "textBox3";
+                textBox_3.TextAlign = HorizontalAlignment.Left;
+                textBox_3.Size = new System.Drawing.Size(p1.Width - 13, 42);
+                textBox_3.TabIndex = 2;
+                textBox_3.Text = "";
+                textBox_3.BorderStyle = BorderStyle.None;
+
+                textBox_3.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_3_KeyDown);
+
+                // 
+                // textBox2
+                // 
+                textBox_2.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_2.Location = new System.Drawing.Point(0, 12);
+                textBox_2.Margin = new System.Windows.Forms.Padding(0);
+                textBox_2.Multiline = false;
+                textBox_2.Name = "textBox2";
+                textBox_2.TextAlign = HorizontalAlignment.Left;
+                textBox_2.Size = new System.Drawing.Size(p1.Width - 14, 8);
+                textBox_2.TabIndex = 1;
+                textBox_2.Text = "";
+                textBox_2.BorderStyle = BorderStyle.None;
+
+                textBox_2.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_2_KeyDown);
+
+                // 
+                // textBox1
+                // 
+                textBox_1.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_1.Location = new System.Drawing.Point(0, 0);
+                textBox_1.Margin = new System.Windows.Forms.Padding(0);
+                textBox_1.Multiline = false;
+                textBox_1.Name = "textBox1";
+                textBox_1.TextAlign = HorizontalAlignment.Left;
+                textBox_1.ShortcutsEnabled = false;
+                textBox_1.Size = new System.Drawing.Size(p1.Width, 12);
+                textBox_1.TabIndex = 0;
+                textBox_1.Text = "";
+                textBox_1.BorderStyle = BorderStyle.None;
+
+                textBox_1.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox_1_KeyDown);
 
 
-            //
-            // Label3
-            //
-            l3.Size = new System.Drawing.Size(p1.Width - 42, p1.Height-45);
-            l3.BackColor = System.Drawing.Color.Yellow;
-            l3.BorderStyle = BorderStyle.FixedSingle;
-            l3.Location = new System.Drawing.Point(43, 24);
+                p1.Controls.Add(textBox_1);
+                p1.Controls.Add(textBox_2);
+                p1.Controls.Add(textBox_3);
+
+                // Mouse Clicks
+                p1.MouseClick += new System.Windows.Forms.MouseEventHandler(p1_yellow_MouseClick);
+                p1.MouseDown += new System.Windows.Forms.MouseEventHandler(p1_MouseDown);
+                p1.MouseMove += new System.Windows.Forms.MouseEventHandler(p1_yellow_MouseMove);
+                p1.MouseUp += new System.Windows.Forms.MouseEventHandler(p1_MouseUp);
+
+                //
+                // Label1
+                //
+                l1.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
+                l1.BackColor = System.Drawing.Color.Yellow;
+                l1.BorderStyle = BorderStyle.FixedSingle;
+                l1.Location = new System.Drawing.Point(43, 12);
+
+                p1.Controls.Add(l1);
+                l1.Visible = true;
+
+                //
+                // Label2
+                //
+                l2.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
+                l2.BackColor = System.Drawing.Color.Yellow;
+                l2.BorderStyle = BorderStyle.FixedSingle;
+                l2.Location = new System.Drawing.Point(43, 18);
+
+                p1.Controls.Add(l2);
+                l2.Visible = true;
 
 
-            p1.Controls.Add(l3);
+                //
+                // Label3
+                //
+                l3.Size = new System.Drawing.Size(p1.Width - 42, p1.Height - 45);
+                l3.BackColor = System.Drawing.Color.Yellow;
+                l3.BorderStyle = BorderStyle.FixedSingle;
+                l3.Location = new System.Drawing.Point(43, 24);
 
-            l3.Visible = true;
 
-            l1.MouseClick += yellow_label1_MouseClick;
-            l2.MouseClick += yellow_label2_MouseClick;
-            l3.MouseClick += yellow_label3_MouseClick;
+                p1.Controls.Add(l3);
 
-            
-            // Delete Button Pressed
-            p1.KeyDown += new System.Windows.Forms.KeyEventHandler(p1_KeyDown);
+                l3.Visible = true;
+
+                l1.MouseClick += yellow_label1_MouseClick;
+                l2.MouseClick += yellow_label2_MouseClick;
+                l3.MouseClick += yellow_label3_MouseClick;
+
+
+                // Delete Button Pressed
+                p1.KeyDown += new System.Windows.Forms.KeyEventHandler(p1_KeyDown);
+            }
         }
 
         private void p1_yellow_MouseMove(object sender, MouseEventArgs e)
@@ -1631,6 +1680,23 @@ namespace Time_Table_Project
             reading_SecondDay_table();
             loading_page_Date_Checker(dateTimePicker1.Text);
             loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    reading_firstDay_table();
+            //    reading_SecondDay_table();
+
+            //    dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
+            //    loading_page_Date_Checker(dateTimePicker1.Text);
+            //    loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString());
+            //}
         }
     }
 }
