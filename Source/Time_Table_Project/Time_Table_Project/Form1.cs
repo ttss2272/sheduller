@@ -1788,5 +1788,12 @@ namespace Time_Table_Project
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        private void btnSingle_Click(object sender, EventArgs e)
+        {
+            SingleScheduler ss = new SingleScheduler();
+            this.Hide();
+            ss.Show();
+        }
     }
 }
