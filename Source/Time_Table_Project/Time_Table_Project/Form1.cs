@@ -55,6 +55,30 @@ namespace Time_Table_Project
         
         private void Pink_Post_Mouse_Click(object sender, MouseEventArgs e)
         {
+            reading_firstDay_table();
+            reading_SecondDay_table();
+
+            dataBase db = new dataBase();
+            string date = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+            string read_data = db.GetPlace(date);
+            if (read_data != null)
+            {
+                string[] arr = read_data.Split('!');
+                string dt = arr[0];
+                int ln = Convert.ToInt32(arr[1]);
+
+
+
+                dateTimePicker1.Value = Convert.ToDateTime(dt);
+                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(+1);
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                loading_page_RightDate_Checkeer(kl);
+
+                pink = --ln;
+                num = --ln;
+            }
             if (num == 20)
             {
 
@@ -68,9 +92,10 @@ namespace Time_Table_Project
                 dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
                 dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
 
-                loading_page_Date_Checker(dateTimePicker1.Text);
-
-                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                loading_page_RightDate_Checkeer(kl);
 
                 pictureBox2.Enabled = true;
                 pictureBox1.Enabled = true;
@@ -504,6 +529,30 @@ namespace Time_Table_Project
 
         private void Yellow_label_mouse_Click(object sender, MouseEventArgs e)
         {
+            reading_firstDay_table();
+            reading_SecondDay_table();
+
+            dataBase db = new dataBase();
+            string date = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+            string read_data = db.GetPlace(date);
+            if (read_data != null)
+            {
+                string[] arr = read_data.Split('!');
+                string dt = arr[0];
+                int ln = Convert.ToInt32(arr[1]);
+
+                
+
+                dateTimePicker1.Value = Convert.ToDateTime(dt);
+                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(+1);
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                loading_page_RightDate_Checkeer(kl);
+
+                pink = --ln;
+                num = --ln;
+            }
             if (num == 20)
             {
 
@@ -516,10 +565,10 @@ namespace Time_Table_Project
 
                 dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
                 dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
-
-                loading_page_Date_Checker(dateTimePicker1.Text);
-
-                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                loading_page_RightDate_Checkeer(kl);
 
                 pictureBox2.Enabled = true;
                 pictureBox1.Enabled = true;
@@ -714,10 +763,11 @@ namespace Time_Table_Project
             
             dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
             dateTimePicker1.Value = dateTimePicker1.Value.AddDays(1);
-            
-            loading_page_Date_Checker(dateTimePicker1.Text);
-            
-            loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+
+            string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+            loading_page_Date_Checker(kj);
+            string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+            loading_page_RightDate_Checkeer(kl);
 
             pictureBox2.Enabled = true;
             pictureBox1.Enabled = true;
@@ -735,9 +785,10 @@ namespace Time_Table_Project
 
             
             dateTimePicker1.Value = dateTimePicker1.Value.Subtract(TimeSpan.FromDays(1));
-
-            loading_page_Date_Checker(dateTimePicker1.Text);
-            loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+            loading_page_Date_Checker(kj);
+            string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+            loading_page_RightDate_Checkeer(kl);
 
             pictureBox1.Enabled = true;
             pictureBox2.Enabled = true;
@@ -757,12 +808,15 @@ namespace Time_Table_Project
             tableLayoutPanel1.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width , Screen.PrimaryScreen.WorkingArea.Height - 5);
             panel2.Location = new System.Drawing.Point(0, 0);
             pictureBox3.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width - 100,Screen.PrimaryScreen.WorkingArea.Height- 100);
-            loading_page_Date_Checker(dateTimePicker1.Text);
-            loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+            loading_page_Date_Checker(kj);
+            string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+            loading_page_RightDate_Checkeer(kl);
         }
 
         private void loading_page_Date_Checker(string kj)
         {//check whether data is available for date if yes
+            //kj = string.Format("{0:yyyy-MM-dd}", kj);
             if (obj.search_date_of_left_day(kj, 0) == true)
                 {
                    // MessageBox.Show(kj + " Date is Found");
@@ -796,6 +850,7 @@ namespace Time_Table_Project
 
         private void loading_page_RightDate_Checkeer(string kl)
         {
+            kl=string.Format("{0:yyyy-MM-dd}", kl);
             if (obj.search_date_of_left_day(kl, 0) == true)
             {
 //                MessageBox.Show(kl +" Date is Found");
@@ -1456,37 +1511,44 @@ namespace Time_Table_Project
         // generating panels and labels
         private Control get_control(string a)
         {
-            if (a.Length <=1)
+            try
             {
-//                MessageBox.Show("String Length = " + a.Length);
-                c = new Label();
-                c.Text = "E";
-                c.Name = "empty";
+                if (a.Length <= 1)
+                {
+                    //                MessageBox.Show("String Length = " + a.Length);
+                    c = new Label();
+                    c.Text = "E";
+                    c.Name = "empty";
+                }
+                else if (a.Length > 3 && a.Length < 19)
+                {
+                    // MessageBox.Show("String Length = " + a.Length);
+                    c = new TextBox();
+                    c.Height = 70;
+                    c.Width = 55;
+                    c.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    c.Text = a;
+                    ((TextBox)c).BorderStyle = BorderStyle.None;
+                    ((TextBox)c).Multiline = true;
+                }
+                else if (a.Length >= 19 && a.Length < 25)
+                {
+                    //                MessageBox.Show("String Length = " + a.Length);
+                    c = new Label();
+                    c.Height = 70;
+                    c.Width = 50;
+                    c.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    c.Text = a;
+                }
+                else if (a.Length >= 25)
+                {
+                    //              MessageBox.Show("String Length = " + a.Length);
+                    c = label_generator(a);
+                }
             }
-            else if (a.Length > 3 && a.Length < 19)
+            catch (Exception ex)
             {
-              // MessageBox.Show("String Length = " + a.Length);
-                c = new TextBox();
-                c.Height = 70;
-                c.Width = 55;
-                c.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                c.Text = a;
-                ((TextBox)c).BorderStyle = BorderStyle.None;
-                ((TextBox)c).Multiline = true;
-            }
-            else if (a.Length >= 19 && a.Length < 25)
-            {
-//                MessageBox.Show("String Length = " + a.Length);
-                c = new Label();
-                c.Height = 70;
-                c.Width = 50;
-                c.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                c.Text = a;
-            }
-            else if (a.Length >= 25 )
-            {
-  //              MessageBox.Show("String Length = " + a.Length);
-                c = label_generator(a);
+                MessageBox.Show(ex.Message.ToString());
             }
             return c;
         }

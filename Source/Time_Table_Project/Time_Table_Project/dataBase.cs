@@ -418,24 +418,24 @@ namespace Time_Table_Project
             string no = "11";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
-            MySqlCommand sda = new MySqlCommand(@"SELECT date, line
-FROM tablelayout1
-WHERE date >= '" + dt + "' AND col1= '" + sp + "' AND col2 = '" + sp + "' AND col3 = '" + sp + "' AND col4 = '" + sp + "' AND col5 = '" + sp + "' AND col6 = '" + sp + "' AND col7 = '" + sp + "' AND col8 = '" + sp + "' AND col9 = '" + sp + "' AND col10 = '" + sp + "' AND col11 = '" + sp + "' AND col12 = '" + sp + "' AND line ! = '" + no + "'", conn);
+            MySqlCommand sda = new MySqlCommand(@"SELECT DATE_FORMAT(date,'%Y-%m-%d'), line
+FROM shedulling.tablelayout1
+WHERE date >= '" + dt + "' AND col2 = '" + sp + "' AND col3 = '" + sp + "' AND col4 = '" + sp + "' AND col5 = '" + sp + "' AND col6 = '" + sp + "' AND col7 = '" + sp + "' AND col8 = '" + sp + "' AND col9 = '" + sp + "' AND col10 = '" + sp + "' AND col11 = '" + sp + "' AND col12 = '" + sp + "' AND line != '" + no + "' limit 1", conn);
             MySqlDataReader reader;
 
             //int r = tableLayoutPanel1.RowCount;
 
             int r = 0; // count rows
             //int cl = 11; // number of columns
-            string a, b, c, d, e, f, g, h, i, j, k, l; // storing data from database
+            string a, b; // storing data from database
             try
             {
                 //conn.Open();
                 reader = sda.ExecuteReader();
                 while (reader.Read())
                 {
-                    a = reader.GetString(2);
-                    b = reader.GetString(3);
+                    a = reader.GetString(0);
+                    b = reader.GetString(1);
                     
 
                     s = a + " !" + b + " !" ;
