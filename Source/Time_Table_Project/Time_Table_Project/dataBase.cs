@@ -48,7 +48,7 @@ namespace Time_Table_Project
             MySqlConnection conn = GetConnection();
             //GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', '" + twe + " ')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', '" + twe + "')", conn);
 
             MySqlDataReader reader;
             try
@@ -76,7 +76,7 @@ namespace Time_Table_Project
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "', '"+twe+" ')", conn);
+                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "','" + ten + "','" + ele + "','"+twe+"')", conn);
 
             MySqlDataReader reader;
             try
@@ -103,7 +103,7 @@ namespace Time_Table_Project
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
-                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' ,col12='"+twe+"'where date = '" + date + "' AND line = '" + line + "'", conn);
+                    '" + date + "',line ='" + line + "',col1 ='" + first + "', col2 ='" + sec + "',col3 ='" + thi + "',col4 ='" + four + "',col5 ='" + fiv + "', col6 ='" + six + "',col7 ='" + sev + "',col8 ='" + eig + "',col9 ='" + nin + "', col10 ='" + ten + "',col11 ='" + ele + "' ,col12='"+twe+"'where date = '" + date + "' AND line ='" + line + "'", conn);
             MySqlDataReader reader;
             try
             {
@@ -131,7 +131,7 @@ namespace Time_Table_Project
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
-                    '" + date + "',line = '" + line + "',col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "',col12='"+twe+"' where date = '" + date + "' AND line = '" + line + "'", conn);
+                    '" + date + "',line ='" + line + "',col1 ='" + first + "', col2 ='" + sec + "',col3 ='" + thi + "',col4 ='" + four + "',col5 ='" + fiv + "', col6 ='" + six + "',col7 ='" + sev + "',col8 ='" + eig + "',col9 ='" + nin + "', col10 ='" + ten + "',col11 ='" + ele + "',col12='"+twe+"' where date = '" + date + "' AND line ='" + line + "'", conn);
             MySqlDataReader reader;
             try
             {
@@ -252,8 +252,8 @@ namespace Time_Table_Project
                 //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
                 //MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
-               
-                MySqlCommand sda = new MySqlCommand(@"Select date,line from shedulling.tablelayout1", conn);
+
+                MySqlCommand sda = new MySqlCommand(@"Select DATE_FORMAT(date,'%Y-%m-%d'),line from shedulling.tablelayout1", conn);
                 MySqlDataReader reader;
                 //openingthe Connection
                 //conn.Open();
@@ -335,7 +335,7 @@ namespace Time_Table_Project
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.names values
-                    (' ',' Pablo  ',' Drop Offs','Juan','Brad','Kevin','bobalu','Brandon', 'Javier','Micheal','Pending')", conn);
+                    (' ',' Pablo',' Drop Offs','Juan','Brad','Kevin','bobalu','Brandon', 'Javier','Micheal','Pending')", conn);
 
             MySqlDataReader reader;
             try
