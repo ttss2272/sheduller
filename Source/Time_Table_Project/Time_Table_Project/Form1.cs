@@ -793,9 +793,10 @@ namespace Time_Table_Project
             pictureBox1.Enabled = true;
             pictureBox2.Enabled = true;
         }
-
+        int FormLoadCount = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             panel2.Visible = false;
             textBox_1.Select(0,0);
             this.Visible = true;
@@ -808,10 +809,27 @@ namespace Time_Table_Project
             tableLayoutPanel1.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width , Screen.PrimaryScreen.WorkingArea.Height - 5);
             panel2.Location = new System.Drawing.Point(0, 0);
             pictureBox3.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width - 100,Screen.PrimaryScreen.WorkingArea.Height- 100);
-            string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
-            loading_page_Date_Checker(kj);
-            string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
-            loading_page_RightDate_Checkeer(kl);
+            if (FormLoadCount == 0)
+            {
+                FormLoadCount++;
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                loading_page_RightDate_Checkeer(kl);
+            }
+            else
+            {
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);                
+                loading_page_RightDate_Checkeer(kl);
+            }
+            
+            //string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+            //loading_page_Date_Checker(kj);
+            //string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+            //loading_page_RightDate_Checkeer(kl);
         }
 
         private void loading_page_Date_Checker(string kj)
@@ -1749,26 +1767,26 @@ namespace Time_Table_Project
         {
             reading_firstDay_table();
             reading_SecondDay_table();
-            loading_page_Date_Checker(dateTimePicker1.Text);
-            loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            loading_page_Date_Checker(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
+            loading_page_RightDate_Checkeer(string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value));
         }
-        int dateTimePickerCount = 0;
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-           // if(dateTimePicker1.va
-            //try
-            //{
-            //    reading_firstDay_table();
-            //    reading_SecondDay_table();
+            //if(dateTimePicker1.va
+            try
+            {
+                reading_firstDay_table();
+                reading_SecondDay_table();
 
-            //    dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-            //    loading_page_Date_Checker(dateTimePicker1.Text);
-            //    loading_page_RightDate_Checkeer(dateTimePicker2.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message.ToString());
-            //}
+                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
+                loading_page_Date_Checker(dateTimePicker1.Text);
+                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

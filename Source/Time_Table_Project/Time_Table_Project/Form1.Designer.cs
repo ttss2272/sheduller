@@ -699,7 +699,7 @@ namespace Time_Table_Project
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(222, 31);
             this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.Form1_Load);
             // 
             // pictureBox2
             // 
@@ -764,7 +764,8 @@ namespace Time_Table_Project
             // 
             // timer2
             // 
-            this.timer2.Interval = 1000000;
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 600000;
             this.timer2.Tick += new System.EventHandler(this.reading_10mints_delay);
             // 
             // Form1
