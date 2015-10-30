@@ -27,6 +27,8 @@ namespace Time_Table_Project
             InitializeComponent();
             dateTimePicker2.Value = DateTime.Today.AddDays(+1);
             typeof(TableLayoutPanel).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(tableLayoutPanel1, true, null);
+            
+
        }
 
         // add server Mac Adress and replace it with localhost
@@ -930,9 +932,11 @@ namespace Time_Table_Project
                     }
                 }
 
-                string dat = dateTimePicker1.Text;
+                string dat = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                //DateTime dat1 = DateTime.ParseExact(dateTimePicker1.Value.ToShortDateString(), "dd/MM/yyyy", null);
                 //DateTime dat1 = Convert.ToDateTime(dateTimePicker1.Value);
                 //string dat1.ToShortDateString();
+
                 col = 0;
                 if (db.search_date_of_left_day(dat, line))
                 {
@@ -1003,7 +1007,8 @@ namespace Time_Table_Project
                 }
                 //DateTime dat1 = Convert.ToDateTime(dateTimePicker2.Text.ToString());
                 //string dat = dat1.ToShortDateString();
-                string dat = dateTimePicker2.Text;
+                string dat = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                //DateTime dat1 = DateTime.ParseExact(dateTimePicker2.Value.ToShortDateString(),"dd/MM/yyyy",null);
                 col = 0;
                 if (db.search_date_of_left_day(dat, line1))
                 {

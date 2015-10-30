@@ -41,6 +41,8 @@ namespace Time_Table_Project
 
         public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
+            //DateTime dt = Convert.ToDateTime(date);
+            
             //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
@@ -96,6 +98,7 @@ namespace Time_Table_Project
 
         public void update_first_table_data(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
+            //DateTime dt = Convert.ToDateTime(date);
             //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
@@ -282,14 +285,15 @@ namespace Time_Table_Project
         public bool search_date_of_left_day(string date, int li)
         {
             string first_table;
+            
             MySqlConnection conn = GetConnection();
             try
             {
                 //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
                 //MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
-                
-                MySqlCommand sda1 = new MySqlCommand(@"Select date,line from shedulling.tablelayout1", conn);
+
+                MySqlCommand sda1 = new MySqlCommand(@"Select  DATE_FORMAT(date,'%Y-%m-%d'),line from shedulling.tablelayout1", conn);
                 MySqlDataReader reader;
                 //openingthe Connection
               
@@ -304,6 +308,7 @@ namespace Time_Table_Project
                 while (reader.Read())
                 {
                     first_table = reader.GetString(0);
+                    first_table = string.Format("{0:yyyy-MM-dd}", first_table);
                     string ll = reader.GetString(1);
                     if (first_table == date && Convert.ToInt32(ll) == li)
                     {
@@ -400,6 +405,50 @@ namespace Time_Table_Project
             conn.Close();
             closeCount++;
         }
+
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date :- 29 Oct 2015
+         * Purpose:- get date and line no to place yellow and pink label
+         */
+        #region---------------------------------getplace()------------------------------------------------------------------------------------------
+        public string GetPlace(string dt)
+        {
+            string sp = "";
+            string no = "11";
+            //MySqlConnection conn = new MySqlConnection(connect);
+            MySqlConnection conn = GetConnection();
+            MySqlCommand sda = new MySqlCommand(@"SELECT date, line
+FROM tablelayout1
+WHERE date >= '" + dt + "' AND col1= '" + sp + "' AND col2 = '" + sp + "' AND col3 = '" + sp + "' AND col4 = '" + sp + "' AND col5 = '" + sp + "' AND col6 = '" + sp + "' AND col7 = '" + sp + "' AND col8 = '" + sp + "' AND col9 = '" + sp + "' AND col10 = '" + sp + "' AND col11 = '" + sp + "' AND col12 = '" + sp + "' AND line ! = '" + no + "'", conn);
+            MySqlDataReader reader;
+
+            //int r = tableLayoutPanel1.RowCount;
+
+            int r = 0; // count rows
+            //int cl = 11; // number of columns
+            string a, b, c, d, e, f, g, h, i, j, k, l; // storing data from database
+            try
+            {
+                //conn.Open();
+                reader = sda.ExecuteReader();
+                while (reader.Read())
+                {
+                    a = reader.GetString(2);
+                    b = reader.GetString(3);
+                    
+
+                    s = a + " !" + b + " !" ;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return s;
+        }
+        #endregion
+
     }
 
 }
