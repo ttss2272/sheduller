@@ -1433,12 +1433,16 @@ namespace Time_Table_Project
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 f = new Form1();
-            this.Hide();
-           
+            this.Hide();           
             f.Show();
-
         }
 
-
+        private void reading_10mints_delay(object sender, EventArgs e)
+        {
+            reading_firstDay_table();
+            //reading_SecondDay_table();
+            loading_page_Date_Checker(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
+            //loading_page_RightDate_Checkeer(string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value));
+        }
     }
 }
