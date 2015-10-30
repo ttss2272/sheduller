@@ -17,10 +17,10 @@ namespace Scheduller_Server
             Console.WriteLine("Remote Server Object Created");
         }
 
-        ~Remote_Sheduller()
-        {
-            conn.Close();
-        }
+        //~Remote_Sheduller()
+        //{
+        //    conn.Close();
+        //}
         string s;
         public MySqlDataReader reader;
         public MySqlCommand sda;
@@ -145,7 +145,7 @@ namespace Scheduller_Server
             //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + dt + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "','"+twe+ "')", conn);
+                    ('" + dt + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "','" + six + "','" + sev + "','" + eig + "','" + nin + "','" + ten + "', '" + ele + "','"+twe+ "')", conn);
                     
 
 
@@ -182,7 +182,7 @@ namespace Scheduller_Server
             //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
 
-            MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set col1 = '" + first + "', col2 = '" + sec + "',col3 = '" + thi + "',col4 = '" + four + "',col5 = '" + fiv + "', col6 = '" + six + "',col7 = '" + sev + "',col8 = '" + eig + "',col9 = '" + nin + "', col10 = '" + ten + "',col11 = '" + ele + "' ,col12='" + twe + "'where date = '" + da + "' AND line = '" + l.ToString() + "';", conn);
+            MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set col1 ='" + first + "', col2 ='" + sec + "',col3 ='" + thi + "',col4 ='" + four + "',col5 ='" + fiv + "', col6 ='" + six + "',col7 ='" + sev + "',col8 ='" + eig + "',col9 ='" + nin + "', col10 ='" + ten + "',col11 ='" + ele + "' ,col12='" + twe + "'where date = '" + da + "' AND line = '" + l.ToString() + "';", conn);
 
             MySqlDataReader reader;
             try
