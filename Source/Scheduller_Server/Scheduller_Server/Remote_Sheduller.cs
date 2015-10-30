@@ -141,10 +141,11 @@ namespace Scheduller_Server
 
         public void add_date_firstDay(string date, int line, string first, string sec, string thi, string four, string fiv, string six, string sev, string eig, string nin, string ten, string ele,string twe)
         {
+            DateTime dt = Convert.ToDateTime(date);
             //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
             MySqlConnection conn = new MySqlConnection(connect);
             MySqlCommand sda = new MySqlCommand(@"insert into shedulling.tablelayout1 values
-                    ('" + date + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "','"+twe+ "')", conn);
+                    ('" + dt + "','" + line + "','" + first + "','" + sec + "','" + thi + "','" + four + "','" + fiv + "', '" + six + "','" + sev + "','" + eig + "','" + nin + "', '" + ten + "', '" + ele + "','"+twe+ "')", conn);
                     
 
 
@@ -225,7 +226,7 @@ namespace Scheduller_Server
                 //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
                 MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
-                MySqlCommand sda1 = new MySqlCommand(@"Select * from shedulling.tablelayout1 where date = '" + date +"' limit 1", conn);
+                MySqlCommand sda1 = new MySqlCommand(@"Select DATE_FORMAT(date,'%Y-%m-%d'),line,col1,col2,col3,col4,col5,col6,col7,col8,col9,col10,col11,col12 from shedulling.tablelayout1 where date = '" + date + "' limit 1", conn);
                 MySqlDataReader reader;
                 //openingthe Connection
                 conn.Open();
