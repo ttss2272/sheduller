@@ -38,6 +38,7 @@ namespace Time_Table_Project
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSingle = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -94,7 +95,6 @@ namespace Time_Table_Project
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btnSingle = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -120,6 +120,16 @@ namespace Time_Table_Project
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1300, 1836);
             this.panel2.TabIndex = 0;
+            // 
+            // btnSingle
+            // 
+            this.btnSingle.Location = new System.Drawing.Point(619, 13);
+            this.btnSingle.Name = "btnSingle";
+            this.btnSingle.Size = new System.Drawing.Size(84, 31);
+            this.btnSingle.TabIndex = 5;
+            this.btnSingle.Text = "Single Day";
+            this.btnSingle.UseVisualStyleBackColor = true;
+            this.btnSingle.Click += new System.EventHandler(this.btnSingle_Click);
             // 
             // panel5
             // 
@@ -222,6 +232,7 @@ namespace Time_Table_Project
             this.tableLayoutPanel1.Controls.Add(this.textBox21, 10, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox22, 22, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 61);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -244,103 +255,103 @@ namespace Time_Table_Project
             // 
             // label25
             // 
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(4, 569);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(29, 43);
+            this.label25.Size = new System.Drawing.Size(43, 52);
             this.label25.TabIndex = 20;
-            this.label25.Text = "6:00\r\n\r\n---\r\n\r\n6:30";
+            this.label25.Text = "6:00\r\n\r\n\r\n6:30";
             // 
             // label24
             // 
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(4, 517);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(29, 44);
+            this.label24.Size = new System.Drawing.Size(43, 51);
             this.label24.TabIndex = 19;
-            this.label24.Text = "5:00\r\n\r\n---\r\n\r\n5:30";
+            this.label24.Text = "5:00\r\n\r\n\r\n5:30";
             // 
             // label23
             // 
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(4, 465);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(28, 38);
+            this.label23.Size = new System.Drawing.Size(43, 51);
             this.label23.TabIndex = 18;
-            this.label23.Text = "4:00\r\n\r\n---\r\n\r\n4:30";
+            this.label23.Text = "4:00\r\n\r\n\r\n4:30";
             // 
             // label22
             // 
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(4, 413);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(28, 41);
+            this.label22.Size = new System.Drawing.Size(43, 51);
             this.label22.TabIndex = 17;
-            this.label22.Text = "3:00\r\n\r\n---\r\n\r\n3:30";
+            this.label22.Text = "3:00\r\n\r\n\r\n3:30";
             // 
             // label21
             // 
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(4, 361);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(29, 40);
+            this.label21.Size = new System.Drawing.Size(43, 51);
             this.label21.TabIndex = 16;
-            this.label21.Text = "2:00\r\n\r\n---\r\n\r\n2:30";
+            this.label21.Text = "2:00\r\n\r\n\r\n2:30";
             // 
             // label20
             // 
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(4, 309);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(29, 39);
+            this.label20.Size = new System.Drawing.Size(43, 51);
             this.label20.TabIndex = 15;
-            this.label20.Text = "1:00\r\n\r\n---\r\n\r\n1:30";
+            this.label20.Text = "1:00\r\n\r\n\r\n1:30";
             // 
             // label19
             // 
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(4, 257);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 42);
+            this.label19.Size = new System.Drawing.Size(43, 51);
             this.label19.TabIndex = 14;
-            this.label19.Text = "12:00\r\n\r\n---\r\n\r\n12:30";
+            this.label19.Text = "12:00\r\n\r\n\r\n12:30";
             // 
             // label18
             // 
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(4, 205);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(29, 39);
+            this.label18.Size = new System.Drawing.Size(43, 51);
             this.label18.TabIndex = 13;
-            this.label18.Text = "11:00\r\n\r\n---\r\n\r\n11:30";
+            this.label18.Text = "11:00\r\n\r\n\r\n11:30";
             // 
             // label17
             // 
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(4, 153);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(28, 37);
+            this.label17.Size = new System.Drawing.Size(43, 51);
             this.label17.TabIndex = 12;
-            this.label17.Text = "10:00\r\n\r\n---\r\n\r\n10:30";
+            this.label17.Text = "10:00\r\n\r\n\r\n10:30";
             // 
             // label16
             // 
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(4, 101);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(28, 41);
+            this.label16.Size = new System.Drawing.Size(32, 51);
             this.label16.TabIndex = 11;
-            this.label16.Text = "9:00\r\n\r\n---\r\n\r\n9:30";
+            this.label16.Text = "9:00\r\n\r\n\r\n9:30";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(4, 49);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(22, 35);
+            this.label15.Size = new System.Drawing.Size(32, 51);
             this.label15.TabIndex = 10;
-            this.label15.Text = "8:00\r\n\r\n---\r\n\r\n8:30";
+            this.label15.Text = "8:00\r\n\r\n\r\n8:30";
             // 
             // textBox12
             // 
@@ -547,112 +558,112 @@ namespace Time_Table_Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(652, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 35);
+            this.label1.Size = new System.Drawing.Size(32, 51);
             this.label1.TabIndex = 31;
-            this.label1.Text = "8:00\r\n\r\n---\r\n\r\n8:30";
+            this.label1.Text = "8:00\r\n\r\n\r\n8:30";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(652, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 35);
+            this.label2.Size = new System.Drawing.Size(32, 51);
             this.label2.TabIndex = 32;
-            this.label2.Text = "9:00\r\n\r\n---\r\n\r\n9:30";
+            this.label2.Text = "9:00\r\n\r\n\r\n9:30";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(652, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 35);
+            this.label5.Size = new System.Drawing.Size(39, 51);
             this.label5.TabIndex = 33;
-            this.label5.Text = "10:00\r\n\r\n---\r\n\r\n10:30";
+            this.label5.Text = "10:00\r\n\r\n\r\n10:30";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(652, 205);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 35);
+            this.label6.Size = new System.Drawing.Size(39, 51);
             this.label6.TabIndex = 34;
-            this.label6.Text = "11:00\r\n\r\n---\r\n\r\n11:30";
+            this.label6.Text = "11:00\r\n\r\n\r\n11:30";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(652, 257);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 35);
+            this.label7.Size = new System.Drawing.Size(39, 51);
             this.label7.TabIndex = 35;
-            this.label7.Text = "12:00\r\n\r\n---\r\n\r\n12:30";
+            this.label7.Text = "12:00\r\n\r\n\r\n12:30";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(652, 309);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 35);
+            this.label8.Size = new System.Drawing.Size(32, 51);
             this.label8.TabIndex = 36;
-            this.label8.Text = "1:00\r\n\r\n---\r\n\r\n1:30";
+            this.label8.Text = "1:00\r\n\r\n\r\n1:30";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(652, 361);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(22, 35);
+            this.label9.Size = new System.Drawing.Size(32, 51);
             this.label9.TabIndex = 37;
-            this.label9.Text = "2:00\r\n\r\n---\r\n\r\n2:30";
+            this.label9.Text = "2:00\r\n\r\n\r\n2:30";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(652, 413);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(22, 35);
+            this.label10.Size = new System.Drawing.Size(32, 51);
             this.label10.TabIndex = 38;
-            this.label10.Text = "3:00\r\n\r\n---\r\n\r\n3:30";
+            this.label10.Text = "3:00\r\n\r\n\r\n3:30";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(652, 465);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(22, 35);
+            this.label11.Size = new System.Drawing.Size(32, 51);
             this.label11.TabIndex = 39;
-            this.label11.Text = "4:00\r\n\r\n---\r\n\r\n4:30";
+            this.label11.Text = "4:00\r\n\r\n\r\n4:30";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(652, 517);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(22, 35);
+            this.label12.Size = new System.Drawing.Size(32, 51);
             this.label12.TabIndex = 40;
-            this.label12.Text = "5:00\r\n\r\n---\r\n\r\n5:30";
+            this.label12.Text = "5:00\r\n\r\n\r\n5:30";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(652, 569);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(22, 35);
+            this.label13.Size = new System.Drawing.Size(32, 52);
             this.label13.TabIndex = 41;
-            this.label13.Text = "6:00\r\n\r\n---\r\n\r\n6:30";
+            this.label13.Text = "6:00\r\n\r\n\r\n6:30";
             // 
             // textBox21
             // 
@@ -752,7 +763,7 @@ namespace Time_Table_Project
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(10, 76);
+            this.pictureBox3.Location = new System.Drawing.Point(46, 75);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(903, 269);
             this.pictureBox3.TabIndex = 1;
@@ -769,16 +780,6 @@ namespace Time_Table_Project
             this.timer2.Enabled = true;
             this.timer2.Interval = 600000;
             this.timer2.Tick += new System.EventHandler(this.reading_10mints_delay);
-            // 
-            // btnSingle
-            // 
-            this.btnSingle.Location = new System.Drawing.Point(619, 13);
-            this.btnSingle.Name = "btnSingle";
-            this.btnSingle.Size = new System.Drawing.Size(84, 31);
-            this.btnSingle.TabIndex = 5;
-            this.btnSingle.Text = "Single Day";
-            this.btnSingle.UseVisualStyleBackColor = true;
-            this.btnSingle.Click += new System.EventHandler(this.btnSingle_Click);
             // 
             // Form1
             // 

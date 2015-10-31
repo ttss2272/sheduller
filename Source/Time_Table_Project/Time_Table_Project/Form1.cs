@@ -825,7 +825,16 @@ namespace Time_Table_Project
                 string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);                
                 loading_page_RightDate_Checkeer(kl);
             }
-            
+
+            //TableLayoutPanelCellPosition pos1 = tableLayoutPanel1.GetCellPosition(Textbox22);
+            //int width1 = tableLayoutPanel1.GetColumnWidths()[pos1.Column];
+            //int height1 = tableLayoutPanel1.GetRowHeights()[pos1.Row];
+            //MessageBox.Show("Width=" + width1 + "And Height=" + height1);
+
+            //TableLayoutPanelCellPosition pos = tableLayoutPanel1.GetCellPosition(Textbox21)
+            //int width = tableLayoutPanel1.GetColumnWidths()[pos.Column];
+            //int height = tableLayoutPanel1.GetRowHeights()[pos.Row];
+            //MessageBox.Show("Width=" + width + "And Height=" + height);
             //string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
             //loading_page_Date_Checker(kj);
             //string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
@@ -971,11 +980,11 @@ namespace Time_Table_Project
                     }
                     else if (c != null && c is Label)
                     {
-                        storeing_firstday[col++] = c.Text;
+                        storeing_firstday[col++] = c.Text.Trim();
                     }
                     else if (c != null && c is TextBox)
                     {
-                        storeing_firstday[col++] = c.Text;
+                        storeing_firstday[col++] = c.Text.Trim();
                     }
                     else if (c != null && c is Panel)
                     {
@@ -987,7 +996,7 @@ namespace Time_Table_Project
                         {
                             if (control is TextBox)
                             {
-                                l = control.Text;
+                                l = control.Text.Trim();
                                 kll = kll + "!" + l;
                             }
                             else if (control is Label)
@@ -1045,11 +1054,11 @@ namespace Time_Table_Project
                     }
                     else if (c != null && c is Label)
                     {
-                        storeing_firstday[col++] = c.Text;
+                        storeing_firstday[col++] = c.Text.Trim();
                     }
                     else if (c != null && c is TextBox)
                     {
-                        storeing_firstday[col++] = c.Text;
+                        storeing_firstday[col++] = c.Text.Trim();
                     }
                     else if (c != null && c is Panel)
                     {
@@ -1061,7 +1070,7 @@ namespace Time_Table_Project
                         {
                             if (control is TextBox)
                             {
-                                l = control.Text;
+                                l = control.Text.Trim();
                                 kll = kll + "!" + l;
                             }
                             else if (control is Label)
@@ -1269,6 +1278,7 @@ namespace Time_Table_Project
                             else
                             {
                   //              MessageBox.Show("Adding at 8");
+                                
                                 tableLayoutPanel1.Controls.Add(get_control(h), 7, r);
                             } break;
                         }
@@ -1554,7 +1564,7 @@ namespace Time_Table_Project
                     //                MessageBox.Show("String Length = " + a.Length);
                     c = new Label();
                     c.Height = 70;
-                    c.Width = 50;
+                    c.Width = 55;
                     c.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     c.Text = a;
                 }
