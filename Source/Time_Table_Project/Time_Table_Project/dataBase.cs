@@ -420,7 +420,8 @@ namespace Time_Table_Project
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"SELECT DATE_FORMAT(date,'%Y-%m-%d'), line
 FROM shedulling.tablelayout1
-WHERE date >= '" + dt + "' AND col2 = '" + sp + "' AND col3 = '" + sp + "' AND col4 = '" + sp + "' AND col5 = '" + sp + "' AND col6 = '" + sp + "' AND col7 = '" + sp + "' AND col8 = '" + sp + "' AND col9 = '" + sp + "' AND col10 = '" + sp + "' AND col11 = '" + sp + "' AND col12 = '" + sp + "' AND line != '" + no + "' limit 1", conn);
+WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) limit 1", conn);
+
             MySqlDataReader reader;
 
             //int r = tableLayoutPanel1.RowCount;
@@ -451,4 +452,5 @@ WHERE date >= '" + dt + "' AND col2 = '" + sp + "' AND col3 = '" + sp + "' AND c
 
     }
 
-}
+}                
+
