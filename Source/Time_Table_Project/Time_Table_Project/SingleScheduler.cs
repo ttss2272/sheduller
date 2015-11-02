@@ -259,8 +259,8 @@ namespace Time_Table_Project
 
                 //p1.Location = new System.Drawing.Point(132, 114);
                 p1.Name = "p1";
-                int height = tableLayoutPanel1.Height / 12;
-                int width = tableLayoutPanel1.Width / 22;
+                int height = tableLayoutPanel1.Height / 6;
+                int width = tableLayoutPanel1.Width / 11;
                 p1.Size = new System.Drawing.Size(width, height);
                 //            MessageBox.Show("p1 Height = "+height +" and width = "+width);
                 p1.TabIndex = 7;
@@ -423,8 +423,8 @@ namespace Time_Table_Project
 
                 //            p1.Location = new System.Drawing.Point(0, 114);
                 p1.Name = "p1";
-                int height = tableLayoutPanel1.Height / 12;
-                int width = tableLayoutPanel1.Width / 22;
+                int height = tableLayoutPanel1.Height / 6;
+                int width = tableLayoutPanel1.Width / 11;
                 p1.Size = new System.Drawing.Size(width, height);
                 p1.TabIndex = 7;
 
@@ -968,8 +968,8 @@ namespace Time_Table_Project
 
             //            p1.Location = new System.Drawing.Point(0, 114);
             p1.Name = "p1";
-            int height = tableLayoutPanel1.Height / 12;
-            int width = tableLayoutPanel1.Width / 22;
+            int height = tableLayoutPanel1.Height / 6;
+            int width = tableLayoutPanel1.Width / 11;
             p1.Size = new System.Drawing.Size(width, height);
             //            Console.WriteLine("P1.size ("+width+","+height+")");
             p1.TabIndex = 7;
