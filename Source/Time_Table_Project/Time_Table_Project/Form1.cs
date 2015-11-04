@@ -540,9 +540,6 @@ namespace Time_Table_Project
                 string[] arr = read_data.Split('!');
                 string dt = arr[0];
                 int ln = Convert.ToInt32(arr[1]);
-
-                
-
                 dateTimePicker1.Value = Convert.ToDateTime(dt);
                 dateTimePicker2.Value = dateTimePicker1.Value.AddDays(+1);
                 string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
