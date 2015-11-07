@@ -208,7 +208,7 @@ namespace Time_Table_Project
                 //
                 // TextBox3 
                 // 
-                textBox_3.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox_3.Location = new System.Drawing.Point(-2, 22);
                 textBox_3.Margin = new System.Windows.Forms.Padding(0);
                 textBox_3.Multiline = true;
@@ -224,7 +224,7 @@ namespace Time_Table_Project
                 // 
                 // textBox2
                 // 
-                textBox_2.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox_2.Location = new System.Drawing.Point(0, 12);
                 textBox_2.Margin = new System.Windows.Forms.Padding(0);
                 textBox_2.Multiline = false;
@@ -241,7 +241,7 @@ namespace Time_Table_Project
                 // 
                 // textBox1
                 // 
-                textBox_1.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox_1.Location = new System.Drawing.Point(0, 0);
                 textBox_1.Margin = new System.Windows.Forms.Padding(0);
                 textBox_1.Multiline = false;
@@ -458,7 +458,7 @@ namespace Time_Table_Project
                 //
                 // TextBox3 
                 // 
-                textBox_3.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox_3.Location = new System.Drawing.Point(-2, 22);
                 textBox_3.Margin = new System.Windows.Forms.Padding(0);
                 textBox_3.Multiline = true;
@@ -474,7 +474,7 @@ namespace Time_Table_Project
                 // 
                 // textBox2
                 // 
-                textBox_2.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox_2.Location = new System.Drawing.Point(0, 12);
                 textBox_2.Margin = new System.Windows.Forms.Padding(0);
                 textBox_2.Multiline = false;
@@ -490,7 +490,7 @@ namespace Time_Table_Project
                 // 
                 // textBox1
                 // 
-                textBox_1.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox_1.Location = new System.Drawing.Point(0, 0);
                 textBox_1.Margin = new System.Windows.Forms.Padding(0);
                 textBox_1.Multiline = false;
@@ -933,7 +933,7 @@ namespace Time_Table_Project
                     c = new TextBox();
                     c.Height = 70;
                     c.Width = 55;
-                    c.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    c.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     c.Text = a;
                     ((TextBox)c).BorderStyle = BorderStyle.None;
                     ((TextBox)c).Multiline = true;
@@ -944,7 +944,7 @@ namespace Time_Table_Project
                     c = new Label();
                     c.Height = 70;
                     c.Width = 50;
-                    c.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    c.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     c.Text = a;
                 }
                 else if (a.Length >= 25)
@@ -999,7 +999,7 @@ namespace Time_Table_Project
             //
             // TextBox3 
             // 
-            textBox_3.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             textBox_3.Location = new System.Drawing.Point(-2, 22);
             textBox_3.Margin = new System.Windows.Forms.Padding(0);
             textBox_3.Multiline = true;
@@ -1015,7 +1015,7 @@ namespace Time_Table_Project
             // 
             // textBox2
             // 
-            textBox_2.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             textBox_2.Location = new System.Drawing.Point(0, 12);
             textBox_2.Margin = new System.Windows.Forms.Padding(0);
             textBox_2.Multiline = false;
@@ -1031,7 +1031,7 @@ namespace Time_Table_Project
             // 
             // textBox1
             // 
-            textBox_1.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             textBox_1.Location = new System.Drawing.Point(0, 0);
             textBox_1.Margin = new System.Windows.Forms.Padding(0);
             textBox_1.Multiline = false;
