@@ -209,7 +209,7 @@ namespace Time_Table_Project
 
             //int r = tableLayoutPanel1.RowCount;
 
-            int r = 0; // count rows
+            //int r = 0; // count rows
             //int cl = 11; // number of columns
             string a, b, c, d, e, f, g, h, i, j, k,l; // storing data from database
             try
@@ -426,7 +426,7 @@ WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AN
 
             //int r = tableLayoutPanel1.RowCount;
 
-            int r = 0; // count rows
+            //int r = 0; // count rows
             //int cl = 11; // number of columns
             string a, b; // storing data from database
             try
