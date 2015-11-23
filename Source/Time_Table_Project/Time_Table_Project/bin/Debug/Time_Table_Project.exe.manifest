@@ -61,19 +61,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Tori8QmMZ8pyQtnQKekr271gvrk=</dsig:DigestValue>
+        <dsig:DigestValue>cGWrSrowtGGi/hnLX4Q/NUO8ifM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Time_Table_Project.exe" size="960000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Time_Table_Project.exe" size="959488">
       <assemblyIdentity name="Time_Table_Project" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>cziBcorK+6J+elW2h++OQS2p694=</dsig:DigestValue>
+        <dsig:DigestValue>6baSPi3WkX44SgHhg7aV3nwtygM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
