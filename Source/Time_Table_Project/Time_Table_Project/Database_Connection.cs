@@ -16,7 +16,7 @@ namespace Time_Table_Project
             try
             {
                 //Connecting to database
-                string connect = "datasource = localhost; port = 3306; username = root; password = ;";
+                //string connect = "datasource = localhost; port = 3306; username = root; password = ;";
                 //MySqlConnection conn = new MySqlConnection(connect);
                 //Querey to select username and password
                 MySqlConnection conn = db.GetConnection();
