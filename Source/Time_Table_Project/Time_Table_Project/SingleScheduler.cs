@@ -30,8 +30,8 @@ namespace Time_Table_Project
         int pink = 0; int pink_change_Column = 11;
         int yellow = 0;
         int yellow_change_column = 11;
-        bool dragged;
-        private Point firstpoint = new Point();
+        //bool dragged;
+        //private Point firstpoint = new Point();
 
         //PINK Button Mouse Click
         public Panel p1;
@@ -55,13 +55,13 @@ namespace Time_Table_Project
         string[] storeing_firstday = new string[12];
         string[] storeing_firstday1 = new string[12];
         int line = 0;
-        int line1 = 0;
+        //int line1 = 0;
 
         dataBase db = new dataBase();
 
         Control c = new Control();
 
-        int co = 0;
+        //int co = 0;
         string kll;
         // string[] array = new string[243];
         string a, b, _c, d, e, f, g, h, i, j, k, l; // storing data from database
@@ -71,7 +71,7 @@ namespace Time_Table_Project
 
         Control cc;
 
-        int ir = 0;
+        //int ir = 0;
 
 
         public SingleScheduler()
