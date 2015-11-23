@@ -34,7 +34,7 @@ namespace Time_Table_Project
         // add server Mac Adress and replace it with localhost
         RemoteIR obj = (RemoteIR)Activator.GetObject(
                 typeof(Remote_Scheduller_Interface.RemoteIR),
-                "tcp://localhost:8089/RemoteScheduller");
+                "tcp://localhost:8189/RemoteScheduller");
             
         int pink = 0; int pink_change_Column = 11;
         int yellow = 0;
@@ -1792,15 +1792,41 @@ namespace Time_Table_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnSingle_Click(object sender, EventArgs e)
         {
-            SingleScheduler ss = new SingleScheduler();
-            this.Hide();
-            ss.Show();
+            try
+            {
+                SingleScheduler ss = new SingleScheduler();
+                reading_firstDay_table();
+                reading_SecondDay_table();
+                this.Hide();
+                ss.Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                reading_firstDay_table();
+                reading_SecondDay_table(); 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
