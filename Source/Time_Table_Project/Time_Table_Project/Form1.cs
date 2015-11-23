@@ -39,8 +39,8 @@ namespace Time_Table_Project
         int pink = 0; int pink_change_Column = 11;
         int yellow = 0;
         int yellow_change_column = 11;
-        bool dragged;
-        private Point firstpoint = new Point();
+        //bool dragged;
+        //private Point firstpoint = new Point();
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
@@ -1104,7 +1104,7 @@ namespace Time_Table_Project
             line1 = 0;
         }
         
-        int co = 0;
+        //int co = 0;
         string kll;
        // string[] array = new string[243];
         string a, b, _c, d, e, f, g, h, i, j, k,l; // storing data from database
