@@ -874,6 +874,8 @@ namespace Time_Table_Project
 
         private void loading_page_RightDate_Checkeer(string kl)
         {
+            dataBase db = new dataBase();
+            string dat = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
             kl=string.Format("{0:yyyy-MM-dd}", kl);
             if (obj.search_date_of_left_day(kl, 0) == true)
             {
@@ -890,10 +892,28 @@ namespace Time_Table_Project
 
                 for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
                 {
+                    //for (int j = 0; j < tableLayoutPanel1.ColumnCount / 2; j++)
                     for (int j = tableLayoutPanel1.ColumnCount/2; j < tableLayoutPanel1.ColumnCount; j++)
                     {
                         if (i == 0 || j == tableLayoutPanel1.ColumnCount/2 )
                         {
+                            if (i == 0)
+                            {
+                                string nowdt = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                                if (Convert.ToDateTime(dat) < Convert.ToDateTime(nowdt))
+                                {
+                                    string ds = db.GetMinFutureDate(dat);
+                                    if (ds != "")
+                                    {
+                                        tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(j, i));
+                                        if (i == 0 && j == tableLayoutPanel1.ColumnCount / 2)
+                                        {
+                                            read_secondDay_from_DB1(ds, 0);
+                                        }
+                                    }
+                                }
+                            }
+                            
                         }
                         else
                         {
@@ -1769,6 +1789,197 @@ namespace Time_Table_Project
                 a.BackColor = Color.Yellow;
             }
         }
+
+        public void read_secondDay_from_DB1(string date, int number)
+        {
+            a = "";
+            b = "";
+            _c = "";
+            d = "";
+            e = "";
+            f = "";
+            g = "";
+            h = "";
+            i = "";
+            j = "";
+            k = "";
+            l = "";
+            obj.db_Connection(date, r);
+            // MessageBox.Show("Value of ir = "+ir);
+            
+            string read_data;
+
+            read_data = obj.reading_right_date(date, number);
+
+            string[] arr = read_data.Split('@');
+
+            a = arr[0];
+            b = arr[1];
+            _c = arr[2];
+            d = arr[3];
+            e = arr[4];
+            f = arr[5];
+            g = arr[6];
+            h = arr[7];
+            i = arr[8];
+            j = arr[9];
+            k = arr[10];
+            l = arr[11];
+
+            for (int change_col = 12; change_col <= (cl + 11); change_col++)
+            {
+                switch (change_col)
+                {
+                    case (12):
+                        {
+                            // pushing always 1st value from db to first column of table
+                            cc = get_control(a);
+                            if (cc.Name == "empty")
+                            {
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(a), 12, 0);
+                                //Console.Write("a is written its text = " + a + " :)");
+                            } break;
+                        }
+                    case 13:
+                        {
+                            cc = get_control(b);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(b), 13, 0);
+                            } break;
+                        }
+                    case (14):
+                        {
+                            cc = get_control(_c);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(_c), 14, 0);
+                            } break;
+                        }
+                    case (15):
+                        {
+                            cc = get_control(d);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(d), 15, 0);
+                            } break;
+                        }
+                    case (16):
+                        {
+                            cc = get_control(e);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(e), 16, 0);
+                            } break;
+                        }
+                    case (17):
+                        {
+                            cc = get_control(f);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(f), 17, 0);
+                            } break;
+                        }
+                    case (18):
+                        {
+                            cc = get_control(g);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(g), 18, 0);
+                            } break;
+                        }
+                    case (19):
+                        {
+                            cc = get_control(h);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(h), 19, 0);
+                            } break;
+                        }
+                    case (20):
+                        {
+                            cc = get_control(i);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(i), 20, 0);
+                            } break;
+                        }
+                    case (21):
+                        {
+                            cc = get_control(j);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(j), 21, 0);
+                            } break;
+                        }
+                    case (22):
+                        {
+                            cc = get_control(k);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(k), 22, 0);
+                            } break;
+                        }
+                    case (23):
+                        {
+                            cc = get_control(l);
+                            if (cc.Name == "empty")
+                            {
+                                //do nothing
+                            }
+                            else
+                            {
+                                tableLayoutPanel1.Controls.Add(get_control(l), 23, 0);
+                            } break;
+                        }
+                }
+            }
+            
+        }
+
 
         private void reading_10mints_delay(object sender, EventArgs e)
         {
