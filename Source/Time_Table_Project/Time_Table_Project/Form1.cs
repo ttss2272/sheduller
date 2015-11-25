@@ -361,10 +361,13 @@ namespace Time_Table_Project
         //MouseDown event handler for all your controls (on the tableLayoutPanel1)
         private void p1_MouseDown(object sender, MouseEventArgs e)
         {
-            Control button = sender as Control;
-            button.Parent = this;
-            button.BringToFront();
-            downPoint = e.Location;
+            if (e.Button == MouseButtons.Left)
+            {
+                Control button = sender as Control;
+                button.Parent = this;
+                button.BringToFront();
+                downPoint = e.Location;
+            }
         }
         
         //MouseMove event handler for all your controls (on the tableLayoutPanel1)
@@ -399,6 +402,7 @@ namespace Time_Table_Project
         //Mouse Click Event for all Panels produced on run time
         private void p1_MouseClick(object sender, MouseEventArgs e)
         {
+            #region delete pink post it
             MouseEventArgs em = (MouseEventArgs) e;
             Control p = sender as Control;
             /*switch (em.Button)
@@ -429,11 +433,13 @@ namespace Time_Table_Project
                 p.Visible = false;
                 tableLayoutPanel1.Invalidate();
             }
+            #region end delete pink post
         }
 
         //Yellow Post Mouse Click
         private void p1_yellow_MouseClick(object sender, MouseEventArgs e)
         {
+            #region Delete yellow mouse click
             Control p1 = sender as Control;
             switch (e.Button)
             {
@@ -452,6 +458,7 @@ namespace Time_Table_Project
                         break;
                     }
             }
+            #endregion
         }
 
         void yellow_label3_MouseClick(object sender, MouseEventArgs e)
