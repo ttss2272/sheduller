@@ -1204,10 +1204,13 @@ namespace Time_Table_Project
         //MouseDown event handler for all your controls (on the tableLayoutPanel1)
         private void p1_MouseDown(object sender, MouseEventArgs e)
         {
-            Control button = sender as Control;
-            button.Parent = this;
-            button.BringToFront();
-            downPoint = e.Location;
+            if (e.Button == MouseButtons.Left)
+            {
+                Control button = sender as Control;
+                button.Parent = this;
+                button.BringToFront();
+                downPoint = e.Location;
+            }
         }
 
         private void p1_yellow_MouseMove(object sender, MouseEventArgs e)
