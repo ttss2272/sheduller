@@ -419,8 +419,8 @@ namespace Time_Table_Project
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"SELECT DATE_FORMAT(date,'%Y-%m-%d'), line
-FROM shedulling.tablelayout1
-WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) limit 1", conn);
+                                                    FROM shedulling.tablelayout1
+                                    WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) limit 1", conn);
 
             MySqlDataReader reader;
 
@@ -449,6 +449,42 @@ WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AN
             return s;
         }
         #endregion
+
+        public string GetMinFutureDate(string dt)
+        {
+
+            string s = "";
+           
+           
+                int c = 0;
+                MySqlConnection conn = GetConnection();
+                MySqlCommand sd = new MySqlCommand(@"SELECT count(*) From shedulling.tablelayout1", conn);
+                MySqlDataReader ed;
+                ed = sd.ExecuteReader();
+                while (ed.Read())
+                {
+                    c = Convert.ToInt32(ed.GetString(0));
+                }
+                ed.Close();
+
+
+                if (c > 0)
+                {
+                    MySqlCommand sda = new MySqlCommand(@"SELECT  DATE_FORMAT(MIN(date),'%Y-%m-%d') From shedulling.tablelayout1 WHERE date >'" + dt + "'", conn);
+
+                    MySqlDataReader reader;
+                    reader = sda.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        s = reader.GetString(0).ToString();
+                    }
+                    reader.Close();
+
+                }
+                conn.Close();
+            
+             return s;
+        }
 
     }
 
