@@ -1565,14 +1565,14 @@ namespace Time_Table_Project
         {
             try
             {
-                if (a.Length <= 1)
+                if (a.Length <= 0)
                 {
                     //                MessageBox.Show("String Length = " + a.Length);
                     c = new Label();
                     c.Text = "E";
                     c.Name = "empty";
                 }
-                else if (a.Length > 3 && a.Length < 19)
+                else if (a.Length >= 1 && a.Length < 19)
                 {
                     // MessageBox.Show("String Length = " + a.Length);
                     c = new TextBox();
@@ -1583,7 +1583,7 @@ namespace Time_Table_Project
                     ((TextBox)c).BorderStyle = BorderStyle.None;
                     ((TextBox)c).Multiline = true;
                 }
-                else if (a.Length >= 19 && a.Length < 25)
+                else if (a.Length >= 19 && a.Length < 22)
                 {
                     //                MessageBox.Show("String Length = " + a.Length);
                     c = new Label();
@@ -1592,7 +1592,7 @@ namespace Time_Table_Project
                     c.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     c.Text = a;
                 }
-                else if (a.Length >= 25)
+                else if (a.Length >= 22)
                 {
                     //              MessageBox.Show("String Length = " + a.Length);
                     c = label_generator(a);
