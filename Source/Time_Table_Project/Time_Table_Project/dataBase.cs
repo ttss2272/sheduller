@@ -45,25 +45,25 @@ namespace Time_Table_Project
             if (line == 0)
             {
                 if (sec == "")
-                { sec = "xxxx"; }
+                { sec = "****"; }
                 if (thi=="")
-                { thi="xxxx";}
+                { thi = "****"; }
                 if(four=="")
-                {four="xxxx";}
+                { four = "****"; }
                 if(fiv=="")
-                { fiv = "xxxx"; }
+                { fiv = "****"; }
                 if(six=="")
-                {six="xxxx";}
+                { six = "****"; }
                 if(sev=="")
-                {sev="xxxx";}
+                { sev = "****"; }
                 if(eig=="")
-                {eig="xxxx";}
+                { eig = "****"; }
                 if(nin=="")
-                {nin="xxxx";}
+                { nin = "****"; }
                 if(ten=="")
-                {ten="xxxx";}
+                { ten = "****"; }
                 if(ele=="")
-                {ele="xxxx";}
+                { ele = "****"; }
                 
             }
             
@@ -130,25 +130,25 @@ namespace Time_Table_Project
             if (line == 0)
             {
                 if (sec == "")
-                { sec = "xxxx"; }
+                { sec = "****"; }
                 if (thi == "")
-                { thi = "xxxx"; }
+                { thi = "****"; }
                 if (four == "")
-                { four = "xxxx"; }
+                { four = "****"; }
                 if (fiv == "")
-                { fiv = "xxxx"; }
+                { fiv = "****"; }
                 if (six == "")
-                { six = "xxxx"; }
+                { six = "****"; }
                 if (sev == "")
-                { sev = "xxxx"; }
+                { sev = "****"; }
                 if (eig == "")
-                { eig = "xxxx"; }
+                { eig = "****"; }
                 if (nin == "")
-                { nin = "xxxx"; }
+                { nin = "****"; }
                 if (ten == "")
-                { ten = "xxxx"; }
+                { ten = "****"; }
                 if (ele == "")
-                { ele = "xxxx"; }
+                { ele = "****"; }
 
             }
             MySqlCommand sda = new MySqlCommand(@"Update shedulling.tablelayout1 set date =
