@@ -180,6 +180,9 @@ namespace Time_Table_Project
                 // label3.Enabled = false;
                 p1 = new Panel();
 
+                //            p1.Location = new System.Drawing.Point(0, 114);
+                
+
                 textBox_3 = new TextBox();
                 textBox_2 = new TextBox();
                 textBox_1 = new TextBox();
@@ -193,7 +196,7 @@ namespace Time_Table_Project
                 textBox_3.BackColor = System.Drawing.Color.Pink;
 
 
-                p1.Location = new Point(400, 300);
+                //p1.Location = new Point(400, 300);
                 p1.Visible = true;
                 p1.BackColor = System.Drawing.Color.Pink;
                 tableLayoutPanel1.Controls.Add(p1, pink_change_Column, pink);
@@ -310,7 +313,7 @@ namespace Time_Table_Project
 
                 // p1.Location = new System.Drawing.Point(132, 114);
                 p1.Name = "p1";
-                p1.Size = new System.Drawing.Size(70, 75);
+                //p1.Size = new System.Drawing.Size(70, 75);
                 p1.TabIndex = 7;
 
                 p1.MouseClick += new System.Windows.Forms.MouseEventHandler(p1_MouseClick);
@@ -320,7 +323,7 @@ namespace Time_Table_Project
 
                 // Delete Button pressed
                 p1.KeyDown += new System.Windows.Forms.KeyEventHandler(p1_KeyDown);
-                p1.Paint += (p1_Paint);
+                
             }
         }
 

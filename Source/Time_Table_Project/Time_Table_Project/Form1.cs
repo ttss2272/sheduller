@@ -244,7 +244,7 @@ namespace Time_Table_Project
 
                 // p1.Location = new System.Drawing.Point(132, 114);
                 p1.Name = "p1";
-                p1.Size = new System.Drawing.Size(70, 75);
+                //p1.Size = new System.Drawing.Size(70, 75);
                 p1.TabIndex = 7;
 
                 p1.MouseClick += new System.Windows.Forms.MouseEventHandler(p1_MouseClick);
