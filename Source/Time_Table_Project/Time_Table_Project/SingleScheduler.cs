@@ -22,6 +22,7 @@ namespace Time_Table_Project
         //  ChannelServices.RegisterChannel(chan);
         static int num = 0;
         int FormLoadCount = 0;
+        int rownum, colnum;
         // add server Mac Adress and replace it with localhost
         RemoteIR obj = (RemoteIR)Activator.GetObject(
                 typeof(Remote_Scheduller_Interface.RemoteIR),
@@ -1213,6 +1214,8 @@ namespace Time_Table_Project
                 button.Parent = this;
                 button.BringToFront();
                 downPoint = e.Location;
+                rownum = tableLayoutPanel1.GetRow(button);
+                colnum = tableLayoutPanel1.GetColumn(button);
             }
         }
 
@@ -1240,6 +1243,18 @@ namespace Time_Table_Project
                 tableLayoutPanel1.Controls.Add(button);
                 moved = false;
                 tableLayoutPanel1.Invalidate();
+            }
+            int c = tableLayoutPanel1.GetColumn(button);
+            int r = tableLayoutPanel1.GetRow(button);
+
+
+            if (c == 0 || r == 0 )
+            {
+                Control p = sender as Control;
+
+                tableLayoutPanel1.SetColumn(p, colnum);
+                tableLayoutPanel1.SetRow(p, rownum);
+
             }
         }
 

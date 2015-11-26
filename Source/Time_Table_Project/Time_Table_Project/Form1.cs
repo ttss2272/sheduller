@@ -20,6 +20,8 @@ namespace Time_Table_Project
         TcpChannel chan = new TcpChannel();
       //  ChannelServices.RegisterChannel(chan);
         static int num = 0;
+
+        int rownum, colnum;
         public Form1()
         {
             textBox_1 = new TextBox();
@@ -367,6 +369,8 @@ namespace Time_Table_Project
                 button.Parent = this;
                 button.BringToFront();
                 downPoint = e.Location;
+                rownum = tableLayoutPanel1.GetRow(button);
+                colnum = tableLayoutPanel1.GetColumn(button);
             }
         }
         
@@ -395,7 +399,22 @@ namespace Time_Table_Project
                 moved = false;
                 tableLayoutPanel1.Invalidate();
             }
+            int c = tableLayoutPanel1.GetColumn(button);
+                int r=tableLayoutPanel1.GetRow(button);
+              
+
+            if (c==0 || r==0 || c== tableLayoutPanel1.ColumnCount/2)
+            {
+                Control p = sender as Control;
+                
+                tableLayoutPanel1.SetColumn(p, colnum);
+                tableLayoutPanel1.SetRow(p, rownum);
+
+            }
+                
         }
+
+       
         
         int Counter_for_MouseClicks = 0;
 
@@ -612,7 +631,7 @@ namespace Time_Table_Project
                 textBox_2.BackColor = System.Drawing.Color.Yellow;
                 textBox_3.BackColor = System.Drawing.Color.Yellow;
 
-                //p1.Location = new Point(20, 20);
+                p1.Location = new Point(400,300);
                 p1.Visible = true;
                 p1.BackColor = System.Drawing.Color.Yellow;
                 tableLayoutPanel1.Controls.Add(p1, yellow_change_column, yellow);
