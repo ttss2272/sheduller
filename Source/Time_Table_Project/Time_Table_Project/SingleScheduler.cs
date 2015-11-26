@@ -1451,5 +1451,32 @@ namespace Time_Table_Project
             loading_page_Date_Checker(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
             //loading_page_RightDate_Checkeer(string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value));
         }
+
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date:- 26 Nov 2015
+         * Purpose :- Ask User that he/she really  want to close the application
+         */
+        #region----------------------------------------Form Closing()------------------------------------------------------------------------------------
+        private void SingleScheduler_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("This will close down the whole application. Confirm?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (MessageBox.Show("Do you Want To Save Changes. Confirm?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    reading_firstDay_table();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+
+        }
+        #endregion
     }
 }

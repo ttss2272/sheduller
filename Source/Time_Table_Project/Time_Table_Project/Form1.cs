@@ -2046,5 +2046,33 @@ namespace Time_Table_Project
             }
             
         }
+
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date:- 26 Nov 2015
+         * Purpose :- Ask User that he/she really  want to close the application
+         */
+        #region----------------------------------------Form Closing()------------------------------------------------------------------------------------
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("This will close down the whole application. Confirm?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (MessageBox.Show("Do you Want To Save Changes. Confirm?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    reading_firstDay_table();
+                    reading_SecondDay_table();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+        #endregion
     }
 }
