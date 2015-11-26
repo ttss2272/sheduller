@@ -209,7 +209,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(4269, 459);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(4566, 459);
             this.tableLayoutPanel1.TabIndex = 5;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             // 
@@ -315,7 +315,7 @@
             // textBox12
             // 
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(3199, 4);
+            this.textBox12.Location = new System.Drawing.Point(3424, 4);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(45, 28);
@@ -325,7 +325,7 @@
             // textBox11
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(2844, 4);
+            this.textBox11.Location = new System.Drawing.Point(3044, 4);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(45, 28);
@@ -335,7 +335,7 @@
             // textBox10
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(2489, 4);
+            this.textBox10.Location = new System.Drawing.Point(2664, 4);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(45, 28);
@@ -345,7 +345,7 @@
             // textBox9
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Location = new System.Drawing.Point(2134, 4);
+            this.textBox9.Location = new System.Drawing.Point(2284, 4);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(45, 28);
@@ -355,7 +355,7 @@
             // textBox8
             // 
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(1779, 4);
+            this.textBox8.Location = new System.Drawing.Point(1904, 4);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(45, 28);
@@ -365,7 +365,7 @@
             // textBox7
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(1424, 4);
+            this.textBox7.Location = new System.Drawing.Point(1524, 4);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(45, 28);
@@ -375,7 +375,7 @@
             // textBox6
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(1069, 4);
+            this.textBox6.Location = new System.Drawing.Point(1144, 4);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(45, 28);
@@ -385,7 +385,7 @@
             // textBox5
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(714, 4);
+            this.textBox5.Location = new System.Drawing.Point(764, 4);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(45, 28);
@@ -396,7 +396,7 @@
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(359, 4);
+            this.textBox4.Location = new System.Drawing.Point(384, 4);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(45, 28);
@@ -406,7 +406,7 @@
             // textBox13
             // 
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(3909, 4);
+            this.textBox13.Location = new System.Drawing.Point(4184, 4);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(47, 28);
@@ -416,7 +416,7 @@
             // textBox21
             // 
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Location = new System.Drawing.Point(3554, 4);
+            this.textBox21.Location = new System.Drawing.Point(3804, 4);
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(47, 28);
@@ -436,7 +436,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(901, 485);
+            this.ClientSize = new System.Drawing.Size(901, 502);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "SingleScheduler";

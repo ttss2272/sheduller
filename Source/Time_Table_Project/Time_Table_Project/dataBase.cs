@@ -418,9 +418,9 @@ namespace Time_Table_Project
             string no = "11";
             //MySqlConnection conn = new MySqlConnection(connect);
             MySqlConnection conn = GetConnection();
-            MySqlCommand sda = new MySqlCommand(@"SELECT DATE_FORMAT(date,'%Y-%m-%d'), line
+            MySqlCommand sda = new MySqlCommand(@"SELECT DATE(DATE_FORMAT(date,'%Y-%m-%d')) AS 'dd', line
                                                     FROM shedulling.tablelayout1
-                                    WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) limit 1", conn);
+                                    WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) Order By dd,line limit 1", conn);
 
             MySqlDataReader reader;
 
