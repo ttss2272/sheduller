@@ -1008,7 +1008,7 @@ namespace Time_Table_Project
             textBox_3.Multiline = true;
             textBox_3.Name = "textBox3";
             textBox_3.TextAlign = HorizontalAlignment.Left;
-            textBox_3.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 2);
+            textBox_3.Size = new System.Drawing.Size(p1.Width / 3, p1.Height /2);
             textBox_3.TabIndex = 2;
             textBox_3.Text = arr[3];
             textBox_3.BorderStyle = BorderStyle.None;
@@ -1041,7 +1041,7 @@ namespace Time_Table_Project
             textBox_1.Name = "textBox1";
             textBox_1.TextAlign = HorizontalAlignment.Left;
             textBox_1.ShortcutsEnabled = false;
-            textBox_1.Size = new System.Drawing.Size(p1.Width, p1.Height / 5);
+            textBox_1.Size = new System.Drawing.Size(p1.Width/3, p1.Height / 5);
             textBox_1.TabIndex = 0;
             textBox_1.Text = arr[1];
             textBox_1.BorderStyle = BorderStyle.None;
@@ -1062,22 +1062,22 @@ namespace Time_Table_Project
             //
             // Label1
             //
-            l1.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 7);
+            l1.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 12);
             l1.BackColor = Color.FromName(arr[4]);
             l1.BorderStyle = BorderStyle.FixedSingle;
-            l1.Location = new System.Drawing.Point(p1.Width / 2 + 13, p1.Height / 5);
-
+            l1.Location = new System.Drawing.Point(p1.Width / 2 + 13, p1.Height / 8);
+            //l1.Text = "Label1";
             p1.Controls.Add(l1);
             l1.Visible = true;
 
             //
             // Label2
             //
-            l2.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 7);
+            l2.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 12);
             l2.BackColor = Color.FromName(arr[5]);
             l2.BorderStyle = BorderStyle.FixedSingle;
-            l2.Location = new System.Drawing.Point(p1.Width / 2 + 13, p1.Height / 3 - 2);
-
+            l2.Location = new System.Drawing.Point(p1.Width / 2 + 13,p1.Height / 5);
+            //l2.Text = "Label2";
             p1.Controls.Add(l2);
             l2.Visible = true;
 
@@ -1085,11 +1085,11 @@ namespace Time_Table_Project
             //
             // Label3
             //
-            l3.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 7);
+            l3.Size = new System.Drawing.Size(p1.Width / 3, p1.Height / 12);
             l3.BackColor = Color.FromName(arr[6]);
             l3.BorderStyle = BorderStyle.FixedSingle;
-            l3.Location = new System.Drawing.Point(p1.Width / 2 + 13, p1.Height / 3 + 4);
-
+            l3.Location = new System.Drawing.Point(p1.Width / 2 + 13, p1.Height /4 +4);
+            //l3.Text = "Label3";
 
             p1.Controls.Add(l3);
 
