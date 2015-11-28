@@ -499,6 +499,12 @@ namespace Time_Table_Project
         }
         #endregion
 
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date :- 29 Oct 2015
+         * Purpose:- Get futeure date with data to display name
+         */
+        #region-----------------------------------------------------------GetFutureDate With data---------------------------------------------------
         public string GetMinFutureDate(string dt)
         {
 
@@ -519,7 +525,7 @@ namespace Time_Table_Project
 
                 if (c > 0)
                 {
-                    MySqlCommand sda = new MySqlCommand(@"SELECT  DATE_FORMAT(MIN(date),'%Y-%m-%d') From shedulling.tablelayout1 WHERE date >'" + dt + "'", conn);
+                    MySqlCommand sda = new MySqlCommand(@"SELECT  DATE_FORMAT(MIN(date),'%Y-%m-%d') From shedulling.tablelayout1 WHERE date >='" + dt + "'", conn);
 
                     MySqlDataReader reader;
                     reader = sda.ExecuteReader();
@@ -534,6 +540,49 @@ namespace Time_Table_Project
             
              return s;
         }
+        #endregion
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date :- 29 Oct 2015
+         * Purpose:- Get past date with data to display name
+         */
+        #region-----------------------------------------------------------GetPastDate With data----------------------------------------------------------
+        public string GetMinPastDate(string dt)
+        {
+
+            string s = "";
+           
+           
+                int c = 0;
+                MySqlConnection conn = GetConnection();
+                MySqlCommand sd = new MySqlCommand(@"SELECT count(*) From shedulling.tablelayout1", conn);
+                MySqlDataReader ed;
+                ed = sd.ExecuteReader();
+                while (ed.Read())
+                {
+                    c = Convert.ToInt32(ed.GetString(0));
+                }
+                ed.Close();
+
+
+                if (c > 0)
+                {
+                    MySqlCommand sda = new MySqlCommand(@"SELECT  DATE_FORMAT(MAX(date),'%Y-%m-%d') From shedulling.tablelayout1 WHERE date <='" + dt + "'", conn);
+
+                    MySqlDataReader reader;
+                    reader = sda.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        s = reader.GetString(0).ToString();
+                    }
+                    reader.Close();
+
+                }
+                conn.Close();
+            
+             return s;
+        }
+        #endregion
 
     }
 

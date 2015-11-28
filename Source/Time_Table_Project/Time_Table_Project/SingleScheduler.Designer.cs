@@ -101,7 +101,9 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(221, 31);
             this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker1.CloseUp += new System.EventHandler(this.dateTimePicker1_CloseUp);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.SingleScheduler_Load);
+            this.dateTimePicker1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePicker1_MouseDown);
             // 
             // pictureBox2
             // 
@@ -209,186 +211,186 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.392529F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(5160, 425);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(5754, 391);
             this.tableLayoutPanel1.TabIndex = 5;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             // 
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(4, 383);
+            this.label25.Location = new System.Drawing.Point(4, 351);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(45, 37);
+            this.label25.Size = new System.Drawing.Size(45, 35);
             this.label25.TabIndex = 20;
             this.label25.Text = "6:00\r\n\r\n6:30";
             // 
             // label24
             // 
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(4, 348);
+            this.label24.Location = new System.Drawing.Point(4, 319);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 34);
+            this.label24.Size = new System.Drawing.Size(45, 31);
             this.label24.TabIndex = 19;
             this.label24.Text = "5:00\r\n\r\n5:30";
             // 
             // label23
             // 
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(4, 313);
+            this.label23.Location = new System.Drawing.Point(4, 287);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 34);
+            this.label23.Size = new System.Drawing.Size(45, 31);
             this.label23.TabIndex = 18;
             this.label23.Text = "4:00\r\n\r\n4:30";
             // 
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(4, 278);
+            this.label22.Location = new System.Drawing.Point(4, 255);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 34);
+            this.label22.Size = new System.Drawing.Size(45, 31);
             this.label22.TabIndex = 17;
             this.label22.Text = "3:00\r\n\r\n3:30";
             // 
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(4, 243);
+            this.label21.Location = new System.Drawing.Point(4, 223);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(45, 34);
+            this.label21.Size = new System.Drawing.Size(45, 31);
             this.label21.TabIndex = 16;
             this.label21.Text = "2:00\r\n\r\n2:30";
             // 
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(4, 208);
+            this.label20.Location = new System.Drawing.Point(4, 191);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(45, 34);
+            this.label20.Size = new System.Drawing.Size(45, 31);
             this.label20.TabIndex = 15;
             this.label20.Text = "1:00\r\n\r\n1:30";
             // 
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(4, 173);
+            this.label19.Location = new System.Drawing.Point(4, 159);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(45, 34);
+            this.label19.Size = new System.Drawing.Size(45, 31);
             this.label19.TabIndex = 14;
             this.label19.Text = "12:00\r\n\r\n12:30";
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(4, 138);
+            this.label18.Location = new System.Drawing.Point(4, 127);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 34);
+            this.label18.Size = new System.Drawing.Size(45, 31);
             this.label18.TabIndex = 13;
             this.label18.Text = "11:00\r\n\r\n11:30";
             // 
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(4, 103);
+            this.label17.Location = new System.Drawing.Point(4, 95);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(45, 34);
+            this.label17.Size = new System.Drawing.Size(45, 31);
             this.label17.TabIndex = 12;
             this.label17.Text = "10:00\r\n\r\n10:30";
             // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(4, 68);
+            this.label16.Location = new System.Drawing.Point(4, 63);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 34);
+            this.label16.Size = new System.Drawing.Size(45, 31);
             this.label16.TabIndex = 11;
             this.label16.Text = "9:00\r\n\r\n9:30";
             // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(4, 33);
+            this.label15.Location = new System.Drawing.Point(4, 31);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 34);
+            this.label15.Size = new System.Drawing.Size(45, 31);
             this.label15.TabIndex = 10;
             this.label15.Text = "8:00\r\n\r\n8:30";
             // 
             // textBox12
             // 
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(3865, 4);
+            this.textBox12.Location = new System.Drawing.Point(4315, 4);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(45, 25);
+            this.textBox12.Size = new System.Drawing.Size(45, 23);
             this.textBox12.TabIndex = 16;
             this.textBox12.Text = "Micheal";
             // 
             // textBox11
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(3436, 4);
+            this.textBox11.Location = new System.Drawing.Point(3836, 4);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(45, 25);
+            this.textBox11.Size = new System.Drawing.Size(45, 23);
             this.textBox11.TabIndex = 15;
             this.textBox11.Text = "Javier";
             // 
             // textBox10
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(3007, 4);
+            this.textBox10.Location = new System.Drawing.Point(3357, 4);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(45, 25);
+            this.textBox10.Size = new System.Drawing.Size(45, 23);
             this.textBox10.TabIndex = 14;
             this.textBox10.Text = "Brandon";
             // 
             // textBox9
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Location = new System.Drawing.Point(2578, 4);
+            this.textBox9.Location = new System.Drawing.Point(2878, 4);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(45, 25);
+            this.textBox9.Size = new System.Drawing.Size(45, 23);
             this.textBox9.TabIndex = 13;
             this.textBox9.Text = "Bobalu";
             // 
             // textBox8
             // 
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(2149, 4);
+            this.textBox8.Location = new System.Drawing.Point(2399, 4);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(45, 25);
+            this.textBox8.Size = new System.Drawing.Size(45, 23);
             this.textBox8.TabIndex = 12;
             this.textBox8.Text = "Kevin";
             // 
             // textBox7
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(1720, 4);
+            this.textBox7.Location = new System.Drawing.Point(1920, 4);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(45, 25);
+            this.textBox7.Size = new System.Drawing.Size(45, 23);
             this.textBox7.TabIndex = 11;
             this.textBox7.Text = "Brad";
             // 
             // textBox6
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(1291, 4);
+            this.textBox6.Location = new System.Drawing.Point(1441, 4);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(45, 25);
+            this.textBox6.Size = new System.Drawing.Size(45, 23);
             this.textBox6.TabIndex = 10;
             this.textBox6.Text = "Juan";
             // 
             // textBox5
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(862, 4);
+            this.textBox5.Location = new System.Drawing.Point(962, 4);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(45, 25);
+            this.textBox5.Size = new System.Drawing.Size(45, 23);
             this.textBox5.TabIndex = 9;
             this.textBox5.Tag = "";
             this.textBox5.Text = "Drop Offs";
@@ -396,30 +398,30 @@
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(433, 4);
+            this.textBox4.Location = new System.Drawing.Point(483, 4);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(45, 25);
+            this.textBox4.Size = new System.Drawing.Size(45, 23);
             this.textBox4.TabIndex = 8;
             this.textBox4.Text = "Pablo";
             // 
             // textBox13
             // 
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(4723, 4);
+            this.textBox13.Location = new System.Drawing.Point(5273, 4);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(47, 25);
+            this.textBox13.Size = new System.Drawing.Size(47, 23);
             this.textBox13.TabIndex = 17;
             this.textBox13.Text = "Pending";
             // 
             // textBox21
             // 
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Location = new System.Drawing.Point(4294, 4);
+            this.textBox21.Location = new System.Drawing.Point(4794, 4);
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(47, 25);
+            this.textBox21.Size = new System.Drawing.Size(47, 23);
             this.textBox21.TabIndex = 42;
             this.textBox21.Text = "Kalpesh";
             // 

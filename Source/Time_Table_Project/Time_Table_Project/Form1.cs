@@ -819,6 +819,8 @@ namespace Time_Table_Project
         int FormLoadCount = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (FormLoadCount == 0)
+            {
            
             panel2.Visible = false;
             textBox_1.Select(0,0);
@@ -832,8 +834,7 @@ namespace Time_Table_Project
             tableLayoutPanel1.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width , Screen.PrimaryScreen.WorkingArea.Height - 5);
             panel2.Location = new System.Drawing.Point(0, 0);
             pictureBox3.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width - 100,Screen.PrimaryScreen.WorkingArea.Height- 100);
-            if (FormLoadCount == 0)
-            {
+            
                 FormLoadCount++;
                 string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
                 loading_page_Date_Checker(kj);
@@ -842,11 +843,13 @@ namespace Time_Table_Project
             }
             else
             {
-                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
-                loading_page_Date_Checker(kj);
-                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);                
-                loading_page_RightDate_Checkeer(kl);
+                //reading_firstDay_table();
+                //reading_SecondDay_table();
+                //string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                //loading_page_Date_Checker(kj);
+                //dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
+                //string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                //loading_page_RightDate_Checkeer(kl);
             }
 
             //TableLayoutPanelCellPosition pos1 = tableLayoutPanel1.GetCellPosition(Textbox22);
@@ -865,8 +868,11 @@ namespace Time_Table_Project
         }
 
         private void loading_page_Date_Checker(string kj)
-        {//check whether data is available for date if yes
+        {
+            //check whether data is available for date if yes
             //kj = string.Format("{0:yyyy-MM-dd}", kj);
+            dataBase db = new dataBase();
+            string dat = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
             if (obj.search_date_of_left_day(kj, 0) == true)
                 {
                    // MessageBox.Show(kj + " Date is Found");
@@ -885,7 +891,46 @@ namespace Time_Table_Project
                         {
                             if (i == 0 || j == 0)
                             {
-                               // MessageBox.Show("Doing Nothing");
+                                #region -----------------------add name for previous or next date available names----------------------------------------------------
+                                if (i==0 && j==0)
+                                {
+                                    string nowdt = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+
+                                    //this code for get future date to insert name only  if selected date is less than now date
+                                        if (Convert.ToDateTime(dat) < Convert.ToDateTime(nowdt))
+                                        {
+                                            string ds = db.GetMinFutureDate(dat);
+                                            if (ds != "")
+                                            {
+                                                for (int jj = 0; jj < tableLayoutPanel1.ColumnCount / 2; jj++)
+                                                {
+                                                    tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(jj, i));
+                                                }
+
+                                                    read_firstDay_from_DB1(ds, 0);
+                                                
+                                            }
+                                        }
+                                        //this code for get past date to insert name only in selected date is greater than now date
+                                        else if ((Convert.ToDateTime(dat) > Convert.ToDateTime(nowdt)))
+                                        {
+                                            string ds = db.GetMinPastDate(dat);
+                                            if (ds != "")
+                                            {
+                                                for (int jj = 0; jj < tableLayoutPanel1.ColumnCount / 2; jj++)
+                                                {
+                                                    tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(jj, i));
+                                                }
+                                                
+                                                
+
+                                                    read_firstDay_from_DB1(ds, 0);
+                                                
+                                            }
+                                        }
+                                }
+                                #endregion end tiral and error
+                                
                             }
                             else
                             {
@@ -923,22 +968,41 @@ namespace Time_Table_Project
                     {
                         if (i == 0 || j == tableLayoutPanel1.ColumnCount/2 )
                         {
-                            if (i == 0)
+                            
+                            #region #region -----------------------add name for previous or next date available names----------------------------------------------------
+                            if (i == 0 && j==tableLayoutPanel1.ColumnCount / 2)
                             {
                                 string nowdt = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                                //this code for get future date to insert name only  if selected date is less than now date
                                 if (Convert.ToDateTime(dat) < Convert.ToDateTime(nowdt))
                                 {
                                     string ds = db.GetMinFutureDate(dat);
                                     if (ds != "")
                                     {
-                                        tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(j, i));
-                                        if (i == 0 && j == tableLayoutPanel1.ColumnCount / 2)
+                                        for (int jj = tableLayoutPanel1.ColumnCount / 2; jj < tableLayoutPanel1.ColumnCount; jj++)
                                         {
-                                            read_secondDay_from_DB1(ds, 0);
+                                            tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(jj, i));
                                         }
+                                        read_secondDay_from_DB1(ds, 0);
                                     }
                                 }
+                                //this code for get past date to insert name only in selected date is greater than now date
+                                else if ((Convert.ToDateTime(dat) > Convert.ToDateTime(nowdt)))
+                                {
+                                    string ds = db.GetMinPastDate(dat);
+                                    if (ds != "")
+                                    {
+                                        for (int jj = tableLayoutPanel1.ColumnCount / 2; jj < tableLayoutPanel1.ColumnCount; jj++)
+                                        {
+                                            tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(jj, i));
+                                        }
+                                        read_secondDay_from_DB1(ds, 0);
+                                    }
+                                }
+
                             }
+                            #endregion trial and error2
+                            
                             
                         }
                         else
@@ -1162,6 +1226,7 @@ namespace Time_Table_Project
         //reading from database Left side
         public void read_firstDay_from_DB(string date, int number)
         {
+            
             a = "";
             b = "";
             _c = "";
@@ -1816,6 +1881,12 @@ namespace Time_Table_Project
             }
         }
 
+        /*
+         * Created By:- PriTesh D. Sortee
+         * Created Date:- 27 Nov 2015
+         * Purpose: To show name in first row if data is not available in second table or right hand side table
+         */
+        #region-----------------------------------------------read_secondDay_from_DB1--------------------------------------------------
         public void read_secondDay_from_DB1(string date, int number)
         {
             a = "";
@@ -1830,7 +1901,7 @@ namespace Time_Table_Project
             j = "";
             k = "";
             l = "";
-            obj.db_Connection(date, r);
+            obj.db_Connection(date,0);
             // MessageBox.Show("Value of ir = "+ir);
             
             string read_data;
@@ -2005,6 +2076,240 @@ namespace Time_Table_Project
             }
             
         }
+        #endregion
+
+        /*
+         * Created By:- PriTesh D. Sortee
+         * Created Date:- 27 Nov 2015
+         * Purpose: To show name in first row if data is not available or Left hand side table or date
+         */
+        #region---------------------------------------------------------read_firstDay_from_DB1------------------------------------------------------
+        public void read_firstDay_from_DB1(string date, int number)
+        {
+            a = "";
+            b = "";
+            _c = "";
+            d = "";
+            e = "";
+            f = "";
+            g = "";
+            h = "";
+            i = "";
+            j = "";
+            k = "";
+            l = "";
+
+            string readed_data;
+            obj.db_Connection(date, 0);
+            //  r = 0;
+            // MessageBox.Show("Value of r = "+r);
+            //if (r == 12)
+            //{ r = 0; }
+
+            readed_data = obj.reading_left_date(date, number);
+            string[] arr = readed_data.Split('@');
+
+            //MessageBox.Show(readed_data + "Column =" + number);
+
+            a = arr[0];
+            b = arr[1];
+            _c = arr[2];
+            d = arr[3];
+            e = arr[4];
+            f = arr[5];
+            g = arr[6];
+            h = arr[7];
+            i = arr[8];
+            j = arr[9];
+            k = arr[10];
+            l = arr[11];
+            //            MessageBox.Show(a+"@"+b+"@"+_c+"@"+d+"@"+e+"@"+f+"@"+g+"@"+h+"@"+i+"@"+j+"@"+k);
+
+            for (int change_col = 0; change_col < cl; change_col++)
+            {
+                switch (change_col)
+                {
+                    case (0):
+                        {
+                            // pushing always 1st value from db to first column of table
+                            cc = get_control(a);
+                            if (cc.Name == "empty")
+                            {
+                                //MessageBox.Show("Empty box here at = "+change_col);
+                            }
+                            else
+                            {
+                                //            MessageBox.Show("Adding at 1 = " + a);
+                                tableLayoutPanel1.Controls.Add(get_control(a), 0, 0);
+
+                            } break;
+                        }
+                    case 1:
+                        {
+                            cc = get_control(b);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+
+                            }
+                            else
+                            {
+                                //        MessageBox.Show("Adding at 2 = " + b);
+                                tableLayoutPanel1.Controls.Add(get_control(b), 1, 0);
+                            } break;
+                        }
+                    case (2):
+                        {
+                            cc = get_control(_c);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //do nothing
+                                //      MessageBox.Show("Adding at 3 empty");
+                            }
+                            else
+                            {
+                                //    MessageBox.Show("Adding at 3 = "+_c);
+                                tableLayoutPanel1.Controls.Add(get_control(_c), 2, 0);
+                            } break;
+                        }
+                    case (3):
+                        {
+                            cc = get_control(d);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //do nothing
+                                //                                MessageBox.Show("Adding at 4");
+                            }
+                            else
+                            {
+                                //                              MessageBox.Show("Adding at 4");
+                                tableLayoutPanel1.Controls.Add(get_control(d), 3, 0);
+                            } break;
+                        }
+                    case (4):
+                        {
+                            cc = get_control(e);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //                            MessageBox.Show("Adding at 5");
+                                //do nothing
+                            }
+                            else
+                            {
+                                //                          MessageBox.Show("Adding at 5");
+                                tableLayoutPanel1.Controls.Add(get_control(e), 4, 0);
+                            } break;
+                        }
+                    case (5):
+                        {
+                            cc = get_control(f);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //                        MessageBox.Show("Adding at 6");
+                                //do nothing
+                            }
+                            else
+                            {
+                                //                      MessageBox.Show("Adding at 6");
+                                tableLayoutPanel1.Controls.Add(get_control(f), 5, 0);
+                            } break;
+                        }
+                    case (6):
+                        {
+                            cc = get_control(g);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //                    MessageBox.Show("Adding at 7");
+                                //do nothing
+                            }
+                            else
+                            {
+                                //                  MessageBox.Show("Adding at 7");
+                                tableLayoutPanel1.Controls.Add(get_control(g), 6, 0);
+                            } break;
+                        }
+                    case (7):
+                        {
+                            cc = get_control(h);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //                MessageBox.Show("Adding at 8");
+                                //do nothing
+                            }
+                            else
+                            {
+                                //              MessageBox.Show("Adding at 8");
+
+                                tableLayoutPanel1.Controls.Add(get_control(h), 7, 0);
+                            } break;
+                        }
+                    case (8):
+                        {
+                            cc = get_control(i);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //            MessageBox.Show("Adding at 9");
+                                //do nothing
+                            }
+                            else
+                            {
+                                //          MessageBox.Show("Adding at 9");
+                                tableLayoutPanel1.Controls.Add(get_control(i), 8, 0);
+                            } break;
+                        }
+                    case (9):
+                        {
+                            cc = get_control(j);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                                //        MessageBox.Show("Adding at 10");
+                                //do nothing
+                            }
+                            else
+                            {
+                                //      MessageBox.Show("Adding at 10");
+                                tableLayoutPanel1.Controls.Add(get_control(j), 9, 0);
+                            } break;
+                        }
+                    case (10):
+                        {
+                            cc = get_control(k);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                //  MessageBox.Show("Adding at 11");
+                                tableLayoutPanel1.Controls.Add(get_control(k), 10, 0);
+                            } break;
+                        }
+                    case (11):
+                        {
+                            cc = get_control(l);
+                            if (cc.Name == "empty")
+                            {
+                                cc.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                //  MessageBox.Show("Adding at 11");
+                                tableLayoutPanel1.Controls.Add(get_control(l), 11, 0);
+                            } break;
+                        }
+                }
+            }
+
+        }
+        #endregion
 
 
         private void reading_10mints_delay(object sender, EventArgs e)
@@ -2015,31 +2320,16 @@ namespace Time_Table_Project
             loading_page_RightDate_Checkeer(string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value));
         }
         
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            //if(dateTimePicker1.va
-            try
-            {
-                reading_firstDay_table();
-                reading_SecondDay_table();
-
-                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-                loading_page_Date_Checker(dateTimePicker1.Text);
-                loading_page_RightDate_Checkeer(dateTimePicker2.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void btnSingle_Click(object sender, EventArgs e)
         {
             try
             {
-                SingleScheduler ss = new SingleScheduler();
+                
                 reading_firstDay_table();
                 reading_SecondDay_table();
+                SingleScheduler ss = new SingleScheduler();
                 this.Hide();
                 ss.Show();
             }
@@ -2051,6 +2341,12 @@ namespace Time_Table_Project
             
         }
 
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date:- 25 Nov 2015
+         * Purpose :- Save details on mouse down on datetime picker
+         */
+        #region------------------------------------------DateTimePicker_MouseDown-------------------------------------------------
         private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
         {
             try
@@ -2065,6 +2361,7 @@ namespace Time_Table_Project
             }
             
         }
+        #endregion
 
         /*
          * Created By :- PriTesh D. Sortee
@@ -2090,6 +2387,29 @@ namespace Time_Table_Project
             else
             {
                 e.Cancel = true;
+            }
+        }
+        #endregion
+
+        /*
+         * Created By :- PriTesh D. Sortee
+         * Created Date:- 27 Nov 2015
+         * Purpose :- DateTimePickerCloseUp
+         */
+        #region-----------------------------------------------------------------datetimepicker CloseUP()----------------------------------------
+        private void dateTimePicker1_CloseUp(object sender, EventArgs e)
+        {
+            try
+            {
+                string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
+                loading_page_Date_Checker(kj);
+                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
+                string kl = string.Format("{0:yyyy-MM-dd}", dateTimePicker2.Value);
+                loading_page_RightDate_Checkeer(kl);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
