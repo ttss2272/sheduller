@@ -764,7 +764,6 @@ namespace Time_Table_Project
             this.dateTimePicker1.Size = new System.Drawing.Size(177, 26);
             this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.CloseUp += new System.EventHandler(this.dateTimePicker1_CloseUp);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.Form1_Load);
             this.dateTimePicker1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePicker1_MouseDown);
             // 
             // pictureBox2

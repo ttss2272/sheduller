@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 using Remote_Scheduller_Interface;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-
+using System.Threading;
 
 
 namespace Time_Table_Project
@@ -75,17 +75,26 @@ namespace Time_Table_Project
         //int ir = 0;
 
 
-        public SingleScheduler()
+        public SingleScheduler(string d)
         {
+            //Thread thr = new Thread(new ThreadStart(splash));
+            //thr.Start();
+            //Thread.Sleep(5000);
             textBox_1 = new TextBox();
             textBox_1.Select(0, 0);
+
+            
             InitializeComponent();
+            
+            dateTimePicker1.Value = Convert.ToDateTime(d);
+            //thr.Abort();
             typeof(TableLayoutPanel).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(tableLayoutPanel1, true, null);
         }
 
         private void SingleScheduler_Load(object sender, EventArgs e)
         {
-
+            if (FormLoadCount == 0)
+            {
             //panel2.Visible = false;
             textBox_1.Select(0, 0);
             this.Visible = true;
@@ -98,8 +107,7 @@ namespace Time_Table_Project
             tableLayoutPanel1.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height - 5);
             //panel2.Location = new System.Drawing.Point(0, 0);
             //pictureBox3.Size = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width - 100, Screen.PrimaryScreen.WorkingArea.Height - 100);
-            if (FormLoadCount == 0)
-            {
+           
                 FormLoadCount++;
                 string kj = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
                 loading_page_Date_Checker(kj);
@@ -1490,9 +1498,9 @@ namespace Time_Table_Project
         private void button1_Click(object sender, EventArgs e)
         {
             reading_firstDay_table();
-            Form1 f = new Form1();
-            this.Hide();           
-            f.Show();
+            this.Visible = false;
+            Form1 f = new Form1(Convert.ToString(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value)));
+            f.Visible = true;
         }
 
         private void reading_10mints_delay(object sender, EventArgs e)
@@ -1805,6 +1813,17 @@ namespace Time_Table_Project
 
         }
         #endregion
+
+
+        public void splash()
+        {
+            this.Hide();  
+        }
+        
+        private void timerRe_Tick(object sender, EventArgs e)
+        {
+            
+        }
 
     }
 }

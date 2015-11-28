@@ -11,7 +11,7 @@ using System.Runtime.Remoting.Channels.Tcp;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Threading;
 
 namespace Time_Table_Project
 {
@@ -22,12 +22,13 @@ namespace Time_Table_Project
         static int num = 0;
 
         int rownum, colnum;
-        public Form1()
+        public Form1(string d)
         {
             textBox_1 = new TextBox();
             textBox_1.Select(0,0);
             InitializeComponent();
-            dateTimePicker2.Value = DateTime.Today.AddDays(+1);
+            dateTimePicker1.Value = Convert.ToDateTime( d);
+            dateTimePicker2.Value = Convert.ToDateTime(dateTimePicker1.Value.AddDays(1));
             typeof(TableLayoutPanel).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(tableLayoutPanel1, true, null);
             
 
@@ -2329,8 +2330,11 @@ namespace Time_Table_Project
                 
                 reading_firstDay_table();
                 reading_SecondDay_table();
-                SingleScheduler ss = new SingleScheduler();
-                this.Hide();
+                
+                this.Visible = false;
+                //timerRedirect.Start();
+                SingleScheduler ss = new SingleScheduler(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
+                ss.Visible = true;
                 ss.Show();
             }
             catch (Exception ex)
@@ -2413,5 +2417,37 @@ namespace Time_Table_Project
             }
         }
         #endregion
+        int tt = 0;
+        //private void timer3_Tick(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+                
+        //        if(tt==10)
+        //        {
+        //            this.Visible = false;
+                    
+        //        }
+
+                
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message.ToString());
+
+        //    }
+        //}
+
+        //private void timerRedirect_Tick(object sender, EventArgs e)
+        //{
+        //    SingleScheduler ss = new SingleScheduler(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
+        //    ss.Visible = true;
+        //    ss.Show();
+        //    timerRedirect.Stop();
+        //}
+
+
+        
     }
 }

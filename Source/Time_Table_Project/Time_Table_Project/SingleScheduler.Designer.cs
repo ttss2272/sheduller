@@ -60,6 +60,7 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerRe = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,7 +103,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(221, 31);
             this.dateTimePicker1.TabIndex = 8;
             this.dateTimePicker1.CloseUp += new System.EventHandler(this.dateTimePicker1_CloseUp);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.SingleScheduler_Load);
             this.dateTimePicker1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePicker1_MouseDown);
             // 
             // pictureBox2
@@ -196,7 +196,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox21, 10, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 67);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 64);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 12;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.682199F));
@@ -431,6 +431,11 @@
             this.timer1.Interval = 600000;
             this.timer1.Tick += new System.EventHandler(this.reading_10mints_delay);
             // 
+            // timerRe
+            // 
+            this.timerRe.Interval = 10000;
+            this.timerRe.Tick += new System.EventHandler(this.timerRe_Tick);
+            // 
             // SingleScheduler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -490,5 +495,6 @@
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerRe;
     }
 }
