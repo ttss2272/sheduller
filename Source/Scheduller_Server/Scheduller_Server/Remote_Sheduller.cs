@@ -222,11 +222,13 @@ namespace Scheduller_Server
         {
             try
             {
+                first_table = null;
+                ll = null;
                // MessageBox.Show("Searching date = "+date);
                 //string connect = "datasource = 127.0.0.1; port = 3306;Connection Timeout=30; Min Pool Size=20; Max Pool Size=200;  username = root; password = ;";
                 MySqlConnection conn = new MySqlConnection(connect);
                 //Query to select Maximum ID from Database;
-                MySqlCommand sda1 = new MySqlCommand(@"Select DATE_FORMAT(date,'%Y-%m-%d'),line,col1,col2,col3,col4,col5,col6,col7,col8,col9,col10,col11,col12 from shedulling.tablelayout1 where date = '" + date + "' limit 1", conn);
+                MySqlCommand sda1 = new MySqlCommand(@"Select DATE_FORMAT(date,'%Y-%m-%d'),line,col1,col2,col3,col4,col5,col6,col7,col8,col9,col10,col11,col12 from shedulling.tablelayout1 where date = '" + date + "'ORDER BY line limit 1", conn);
                 MySqlDataReader reader;
                 //openingthe Connection
                 conn.Open();
@@ -250,17 +252,18 @@ namespace Scheduller_Server
                     {
                         date_of_Table2 = true;
                         Console.WriteLine("On Server data found for " + date);
-                        return date_of_Table2;
+                        //return date_of_Table2;
                     }
                     else
                     {
                         date_of_Table2 = false;
                         Console.WriteLine("On Server data found for " + date);
-                        return date_of_Table2;
+                        //return date_of_Table2;
                     }                    
                 }
                 else
                 {
+                    date_of_Table2 = false;
                     Console.WriteLine("On Server data could not found for " + date);
                 }
             }

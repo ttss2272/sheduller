@@ -14,7 +14,7 @@ namespace Scheduller_Server
         static void Main(string[] args)
         {
             // Create an instance of a channel
-            TcpChannel channel = new TcpChannel(8089);
+            TcpChannel channel = new TcpChannel(8189);
             ChannelServices.RegisterChannel(channel, false);
 
             // Register as an available service with the name HelloWorld
