@@ -574,7 +574,7 @@ namespace Time_Table_Project
 
         private void reading_firstDay_table()
         {
-            
+            dataBase db = new dataBase();
             for (int i = 0; i < this.tableLayoutPanel1.RowCount; i++)
             {
                 for (int j = 0; j < this.tableLayoutPanel1.ColumnCount ; j++)
@@ -1513,7 +1513,7 @@ namespace Time_Table_Project
         {
             if (MessageBox.Show("This will close down the whole application. Confirm?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Do you Want To Save Changes. Confirm?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Do you Want To Save Changes. Confirm?", "Save Application Data", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     reading_firstDay_table();
                 }

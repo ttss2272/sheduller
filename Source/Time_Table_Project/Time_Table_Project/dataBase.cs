@@ -461,6 +461,7 @@ namespace Time_Table_Project
          * Purpose:- get date and line no to place yellow and pink label
          */
         #region---------------------------------getplace()------------------------------------------------------------------------------------------
+        //two day
         public string GetPlace(string dt)
         {
             string sp = "";
@@ -469,7 +470,7 @@ namespace Time_Table_Project
             MySqlConnection conn = GetConnection();
             MySqlCommand sda = new MySqlCommand(@"SELECT DATE(DATE_FORMAT(date,'%Y-%m-%d')) AS 'dd',  CONVERT( line, UNSIGNED INTEGER ) AS line
                                                     FROM shedulling.tablelayout1
-                                    WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) Order By dd,line limit 1", conn);
+                                    WHERE date >= '" + dt  + "' AND col12 = '" + sp + "' AND line != '" + no + "' AND 1= (SELECT 1 FROM shedulling.tablelayout1 WHERE col2='"+sp+"' OR col3='"+sp+"' OR col4='" +sp+ "' OR col5='"+sp+"' OR col6='"+sp+"' OR col7='"+sp+"' OR col8='"+sp+"'  OR col9='"+sp+"' OR col10='"+sp+"'  OR col11='"+sp+"' AND col12='"+sp+"' limit 1) Order By dd ,line limit 1", conn);
 
             MySqlDataReader reader;
 
