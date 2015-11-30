@@ -2417,35 +2417,7 @@ namespace Time_Table_Project
             }
         }
         #endregion
-        int tt = 0;
-        //private void timer3_Tick(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-                
-        //        if(tt==10)
-        //        {
-        //            this.Visible = false;
-                    
-        //        }
-
-                
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message.ToString());
-
-        //    }
-        //}
-
-        //private void timerRedirect_Tick(object sender, EventArgs e)
-        //{
-        //    SingleScheduler ss = new SingleScheduler(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
-        //    ss.Visible = true;
-        //    ss.Show();
-        //    timerRedirect.Stop();
-        //}
+        
 
 
         
