@@ -28,6 +28,9 @@ namespace Time_Table_Project
                 typeof(Remote_Scheduller_Interface.RemoteIR),
                 "tcp://localhost:8189/RemoteScheduller");
 
+        string[] pos = new string[270];
+        int kount;
+
         int pink = 0; int pink_change_Column = 11;
         int yellow = 0;
         int yellow_change_column = 11;
@@ -83,8 +86,9 @@ namespace Time_Table_Project
             textBox_1 = new TextBox();
             textBox_1.Select(0, 0);
 
-            
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             InitializeComponent();
+            timer1.Enabled = true;
             
             dateTimePicker1.Value = Convert.ToDateTime(d);
             //thr.Abort();
@@ -1260,6 +1264,20 @@ namespace Time_Table_Project
                 downPoint = e.Location;
                 rownum = tableLayoutPanel1.GetRow(button);
                 colnum = tableLayoutPanel1.GetColumn(button);
+
+                for (int i = 0; i < tableLayoutPanel1.ColumnCount; i++)
+                {
+                    for (int j = 0; j < tableLayoutPanel1.RowCount; j++)
+                    {
+                        Control cc = tableLayoutPanel1.GetControlFromPosition(i, j);
+                        if (cc != null)
+                        {
+                            pos[kount] = Convert.ToString(tableLayoutPanel1.GetCellPosition(cc));
+                            kount++;
+                        }
+
+                    }
+                }
             }
         }
 
@@ -1279,6 +1297,7 @@ namespace Time_Table_Project
         //MouseUp event handler for all your controls (on the tableLayoutPanel1)
         private void p1_MouseUp(object sender, MouseEventArgs e)
         {
+            
             Control button = sender as Control;
             if (moved)
             {
@@ -1290,6 +1309,15 @@ namespace Time_Table_Project
             }
             int c = tableLayoutPanel1.GetColumn(button);
             int r = tableLayoutPanel1.GetRow(button);
+
+            for (int i = 0; i <= kount; i++)
+            {
+                if (Convert.ToString(tableLayoutPanel1.GetCellPosition(button)) == Convert.ToString(pos[i]))
+                {
+                    c = 0;
+                }
+            }
+            
 
 
             if (c == 0 || r == 0 )
@@ -1498,6 +1526,7 @@ namespace Time_Table_Project
         private void button1_Click(object sender, EventArgs e)
         {
             reading_firstDay_table();
+            timer1.Enabled = false;
             this.Visible = false;
             Form1 f = new Form1(Convert.ToString(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value)));
             f.Visible = true;

@@ -20,13 +20,17 @@ namespace Time_Table_Project
         TcpChannel chan = new TcpChannel();
       //  ChannelServices.RegisterChannel(chan);
         static int num = 0;
-
+        string[] pos= new string[270];
+        int kount;
         int rownum, colnum;
         public Form1(string d)
         {
             textBox_1 = new TextBox();
             textBox_1.Select(0,0);
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             InitializeComponent();
+            timer2.Enabled = true;
+            //BackColor = Color.Transparent;
             dateTimePicker1.Value = Convert.ToDateTime( d);
             dateTimePicker2.Value = Convert.ToDateTime(dateTimePicker1.Value.AddDays(1));
             typeof(TableLayoutPanel).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(tableLayoutPanel1, true, null);
@@ -366,12 +370,27 @@ namespace Time_Table_Project
         {
             if (e.Button == MouseButtons.Left)
             {
+                 kount = 0;
                 Control button = sender as Control;
                 button.Parent = this;
                 button.BringToFront();
                 downPoint = e.Location;
                 rownum = tableLayoutPanel1.GetRow(button);
                 colnum = tableLayoutPanel1.GetColumn(button);
+                for (int i=0;i<tableLayoutPanel1.ColumnCount;i++)
+                {
+                    for (int j = 0; j < tableLayoutPanel1.RowCount; j++)
+                    {
+                        Control cc= tableLayoutPanel1.GetControlFromPosition(i,j);
+                        if (cc != null)
+                        {
+                            pos[kount] = Convert.ToString( tableLayoutPanel1.GetCellPosition(cc));
+                            kount++;
+                        }
+
+                    }
+                }
+                
             }
         }
         
@@ -391,7 +410,12 @@ namespace Time_Table_Project
         //MouseUp event handler for all your controls (on the tableLayoutPanel1)
         private void p1_MouseUp(object sender, MouseEventArgs e)
         {
+
+            //kount = 0;
             Control button = sender as Control;
+            
+            
+             
             if (moved)
             {
                 SetControl(button, e.Location);
@@ -402,9 +426,18 @@ namespace Time_Table_Project
             }
             int c = tableLayoutPanel1.GetColumn(button);
                 int r=tableLayoutPanel1.GetRow(button);
-              
+            string pp=Convert.ToString(tableLayoutPanel1.GetCellPosition(button));
 
-            if (c==0 || r==0 || c== tableLayoutPanel1.ColumnCount/2)
+            for (int i = 0; i <= kount; i++)
+            {
+                if (pp == Convert.ToString(pos[i]))
+                {
+                    c = 0;
+                }
+            }       
+                    
+                
+            if (c==0 || r==0 || c== tableLayoutPanel1.ColumnCount/2|| c==tableLayoutPanel1.ColumnCount-1)
             {
                 Control p = sender as Control;
                 
@@ -1121,7 +1154,7 @@ namespace Time_Table_Project
                         kll = null;
                     }
                 }
-
+                
                 string dat = string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value);
                 //DateTime dat1 = DateTime.ParseExact(dateTimePicker1.Value.ToShortDateString(), "dd/MM/yyyy", null);
                 //DateTime dat1 = Convert.ToDateTime(dateTimePicker1.Value);
@@ -2330,7 +2363,7 @@ namespace Time_Table_Project
                 
                 reading_firstDay_table();
                 reading_SecondDay_table();
-                
+                timer2.Enabled = false;
                 this.Visible = false;
                 //timerRedirect.Start();
                 SingleScheduler ss = new SingleScheduler(string.Format("{0:yyyy-MM-dd}", dateTimePicker1.Value));
