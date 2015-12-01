@@ -86,7 +86,10 @@ namespace Time_Table_Project
             textBox_1 = new TextBox();
             textBox_1.Select(0, 0);
 
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            //this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.TransparencyKey = Color.FromKnownColor(KnownColor.Control);
+            this.Update();
+
             InitializeComponent();
             timer1.Enabled = true;
             

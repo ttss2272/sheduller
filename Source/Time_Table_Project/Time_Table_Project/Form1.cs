@@ -27,7 +27,9 @@ namespace Time_Table_Project
         {
             textBox_1 = new TextBox();
             textBox_1.Select(0,0);
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            //this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.TransparencyKey = Color.FromKnownColor(KnownColor.Control);
+            this.Update();
             InitializeComponent();
             timer2.Enabled = true;
             //BackColor = Color.Transparent;
@@ -1747,9 +1749,9 @@ namespace Time_Table_Project
             Label l2 = new Label();
             Label l3 = new Label();
 
-            textBox_1.BackColor = Color.FromName(arr[0]);
-            textBox_2.BackColor = Color.FromName(arr[0]);
-            textBox_3.BackColor = Color.FromName(arr[0]);
+            textBox_1.BackColor = System.Drawing.Color.FromName(arr[0]);
+            textBox_2.BackColor = System.Drawing.Color.FromName(arr[0]);
+            textBox_3.BackColor = System.Drawing.Color.FromName(arr[0]);
 
             //p1.Location = new Point(20, 20);
             p1.Visible = true;
